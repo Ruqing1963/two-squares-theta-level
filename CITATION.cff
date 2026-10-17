@@ -1,0 +1,30 @@
+cff-version: 1.2.0
+message: "If you use this repository, please cite the paper and the archived dataset."
+title: "Sums of two squares with few prime factors via theta series of quaternary forms: code, data and manuscript"
+type: software
+authors:
+  - family-names: Chen
+    given-names: Ruqing
+    affiliation: "GUT Geoservice Inc., Montreal, Canada"
+    email: ruqing@hotmail.com
+doi: 10.5281/zenodo.23438288
+date-released: 2026-10-17
+version: "1.0"
+url: "https://doi.org/10.5281/zenodo.23438288"
+license: MIT
+repository-code: "https://github.com/Ruqing1963/two-squares-theta-level"
+keywords:
+  - sums of two squares
+  - almost primes
+  - sieve methods
+  - theta series
+  - quaternary quadratic forms
+  - level of distribution
+preferred-citation:
+  type: article
+  authors:
+    - family-names: Chen
+      given-names: Ruqing
+  title: "Sums of two squares with few prime factors via theta series of quaternary forms"
+  year: 2026
+  notes: "preprint"

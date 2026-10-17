@@ -1,0 +1,19 @@
+﻿linear sieve: F(3) in [1.187382,1.187382], f(4) in [0.978354,0.978354], F(60) <= 1.000066, f(60) >= 0.999935
+
+=== joint 9 and max side 6: theta=2/5, alpha=9/250, lam=3/10, beta1=3/10; 1/lam + 2/beta1 = 10 => Omega(n1 n2) <= 9; 1/lam + 1/beta1 = 20/3 ~ 6.6667 => max Omega(n_i) <= 6 ===
+thetaA = 0.1998 (sA = 5.5500, sB = 5.5611)
+L   >= 0.998974
+R   <= 2.816690
+certified:  net = L - lam R >= +0.153967   ->  POSITIVE
+
+=== joint 9 (side 7), more margin: theta=2/5, alpha=4/125, lam=7/30, beta1=7/20; 1/lam + 2/beta1 = 10 => Omega(n1 n2) <= 9; 1/lam + 1/beta1 = 50/7 ~ 7.1429 => max Omega(n_i) <= 7 ===
+thetaA = 0.1992 (sA = 6.2250, sB = 6.2750)
+L   >= 0.999637
+R   <= 3.471422
+certified:  net = L - lam R >= +0.189639   ->  POSITIVE
+
+=== joint 9 and max side 6, lambda = 1/3: theta=2/5, alpha=9/250, lam=1/3, beta1=3/10; 1/lam + 2/beta1 = 29/3 => Omega(n1 n2) <= 9; 1/lam + 1/beta1 = 19/3 ~ 6.3333 => max Omega(n_i) <= 6 ===
+thetaA = 0.1998 (sA = 5.5500, sB = 5.5611)
+L   >= 0.998974
+R   <= 2.816690
+certified:  net = L - lam R >= +0.060078   ->  POSITIVE

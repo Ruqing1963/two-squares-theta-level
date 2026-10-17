@@ -1,0 +1,7 @@
+﻿linear sieve: F(3) in [1.187382,1.187382], f(4) in [0.978354,0.978354], F(60) <= 1.000066, f(60) >= 0.999935
+
+=== level 1/2 (conditional): joint 8 and max side 5: theta=1/2, alpha=6/125, lam=1/3, beta1=17/50; 1/lam + 2/beta1 = 151/17 => Omega(n1 n2) <= 8; 1/lam + 1/beta1 = 101/17 ~ 5.9412 => max Omega(n_i) <= 5 ===
+thetaA = 0.2497 (sA = 5.2031, sB = 5.2135)
+L   >= 0.997718
+R   <= 2.498893
+certified:  net = L - lam R >= +0.164754   ->  POSITIVE
