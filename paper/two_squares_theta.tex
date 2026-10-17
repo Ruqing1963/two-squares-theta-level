@@ -385,6 +385,13 @@ If the error term in Theorem~\ref{thm:unif} were $O(N^{1/2+\e})$ uniformly in $m
 %=====================================================================================================
 \section{Numerical evidence and a conjecture}\label{sec:numerics}
 
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.66\textwidth]{sup_error.pdf}
+\caption{The data of Table~\ref{tab:num} for $X=2^{21}$ (all pairs computed), with the lines $(mm')^{-1/4}$ and $(mm')^{1/4}$ for comparison. The supremum does not grow with the level; the root mean square decreases like $(mm')^{-1/4}$.}
+\label{fig:sup}
+\end{figure}
+
 The quantities $T(m,m';N)$ for all $N\le X$ are obtained at once by a fast Fourier transform convolution of the sequences $r(a)1_{m\mid\cdot}$ and $r(b)1_{m'\mid\cdot}$, and $M(m,m';N)$ from \eqref{eq:siegel}--\eqref{eq:betabad} with the $2$-adic density computed exactly modulo $2^9$ (script \texttt{sup\_error\_scan.py}). Table~\ref{tab:num} and Figure~\ref{fig:sup} report the statistics of $(T-M)/\sqrt N$ over all $N\in(X/2,X]$ with $(N,mm')=1$ and $v_2(N)\le3$, for $X=2^{21}$ and $X=2^{23}$. Three consistency checks: for $mm'\in\{1,3\}$ (levels $4$ and $12$, where $S_2(\Gamma_0(L))=0$) the error is identically zero, so the main term \eqref{eq:siegel} is exact; for $(m,m')=(1,5)$ and $(9,1)$ the error vanishes identically for $N\equiv2\pmod4$, because the newforms of levels $20$ and $36$ have $a(2)=0$ and there are no oldforms with $a(2)\ne0$; and the density \eqref{eq:betabad} was checked against exact counts modulo $p^2$ for $p\le13$.
 
 \begin{table}[ht]
@@ -410,13 +417,6 @@ $(1009,1013)$ & 1022117 & 0.036 & 0.29 & 0.61 & 0.55\\
 \caption{Statistics of $(T(m,m';N)-M(m,m';N))/\sqrt N$ over all admissible $N\in(X/2,X]$ ($\approx10^6$ values for $X=2^{21}$, $4\cdot10^6$ for $X=2^{23}$; the run with $X=2^{23}$ covers a selection of the pairs).}
 \label{tab:num}
 \end{table}
-
-\begin{figure}[htbp]
-\centering
-\includegraphics[width=0.66\textwidth]{sup_error.pdf}
-\caption{The data of Table~\ref{tab:num} for $X=2^{21}$ (all pairs computed), with the lines $(mm')^{-1/4}$ and $(mm')^{1/4}$ for comparison. The supremum does not grow with the level; the root mean square decreases like $(mm')^{-1/4}$.}
-\label{fig:sup}
-\end{figure}
 
 Two features stand out. First, the root mean square decreases like $(mm')^{-1/4}$. By the Rankin--Selberg method, the mean square of $a_G(n)/\sqrt n$ over $n\le Y$ tends to $(4\pi)^2\|G\|^2/\mathrm{vol}(\Gamma_0(4mm')\backslash\HH)$, and the volume is $\asymp mm'$; so the data say $\|G\|\asymp(mm')^{1/4}$, i.e.\ Lemma~\ref{lem:waibel} is sharp up to $N^\e$. (Waibel's lower bound \cite[Theorem~3]{Waibel} gives only $\|G\|^2\gg1/\min(m,m')$ for our forms.) Second, the supremum over $N$ does not grow with $mm'$ at all---it decreases---while Theorem~\ref{thm:unif} allows growth like $(mm')^{1/4}$. The gap is the Cauchy--Schwarz step in Lemma~\ref{lem:hecke}: the coefficient $a_G(N)$ is a sum over $\asymp mm'$ Hecke eigenforms of terms whose moduli are controlled by $\|G\|$, and the inequality is sharp only if their phases align, which the data say they never do. The growth in $N$ between $X=2^{21}$ and $2^{23}$ is by a factor $1.0$--$1.2$, as expected from Deligne's bound (the suprema are attained at $N$ with $16$--$96$ divisors). We therefore expect:
 
