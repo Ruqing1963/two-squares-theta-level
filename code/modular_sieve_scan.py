@@ -1,21 +1,21 @@
-﻿"""
-Floating-point parameter scan for the sieve of Paper III (holomorphic route).
+"""
+Floating-point parameter scan for the sieve of the paper (holomorphic route).
 
-Sequence: n odd, n <= N, N = 2 mod 4, weights w(n) = r(n) r(N-n); level of distribution theta = 2/5 (Theorem 2).
-Sift all odd primes < z = N^alpha on both sides: vector sieve of two linear components (side A: p | n, side B:
-p | N-n; each has dimension 1 since sum_{split p<z} h(p) ~ log log z, h(p) = (2p-1)/(p(p+1))).
+Sequence: n <= N with (n, N) = 1, N = 2 mod 4, weights w(n) = r(n) r(N-n); level of distribution theta = 2/5
+(Theorem 3.2). Sift all odd primes < z = N^alpha not dividing N, on both sides: vector sieve of two linear
+components (side A: p | n, side B: p | N-n; each has dimension 1 since sum_{split p<z} h(p) ~ log log z,
+h(p) = (2p-1)/(p(p+1))).
 
     L   = f1(sA) F1(sB) + F1(sA) f1(sB) - F1(sA) F1(sB),   sX = thetaX/alpha,  thetaA + thetaB = theta
     R   = 2 int_alpha^beta1 (1 - u/beta1) U(theta - u) du/u,   U(t) = min_{tA+tB=t} F1(tA/alpha) F1(tB/alpha)
     positivity L - lam R > 0  =>  Omega(n(N-n)) < 1/lam + 2/beta1,  max(Omega(n), Omega(N-n)) < 1/lam + 1/beta1.
 
 Heuristic main-term model, NOT certified (certify_modular.py does that for the chosen parameters).
-Uses the linear sieve functions of ../bilateral-two-squares-sieve/code/sieve_core.py.
+Uses the linear sieve functions of sieve_core.py (copied from Ruqing1963/bilateral-two-squares-sieve).
+Usage: python modular_sieve_scan.py [theta]
 """
 import sys
-import os
 import numpy as np
-
 from sieve_core import F_lin, f_lin
 
 THETA = 0.4
@@ -60,7 +60,7 @@ if __name__ == "__main__":
         L, tA = best_L(alpha, theta)
         if L <= 0:
             continue
-        for beta1 in np.arange(0.22, 0.401, 0.01):
+        for beta1 in np.arange(0.22, theta - 0.0001, 0.01):
             R = R_value(alpha, theta, beta1, nu=200)
             lam_max = L / R                       # largest admissible lambda (net -> 0)
             joint = 1 / lam_max + 2 / beta1       # smallest achievable 1/lam + 2/beta1 (not integer-adjusted)
@@ -76,24 +76,3 @@ if __name__ == "__main__":
     for joint, side, alpha, beta1, L, R, lam, tA in rows[:12]:
         print(f"  1/lam+2/beta1={joint:6.3f} 1/lam+1/beta1={side:6.3f}  alpha={alpha:.3f} beta1={beta1:.2f} "
               f"L={L:.4f} R={R:.4f} lam_max={lam:.4f} thetaA={tA:.4f}")
-    # concrete candidates with rational lam, beta1 and 5% margin
-    print()
-    print("candidates with exact (lam, beta1) and margin L - lam R:")
-    for (lam, beta1, label) in ((0.2, 0.4, "joint 9 (1/lam+2/beta1 = 10)"),
-                                (1 / 6, 1 / 3, "joint 9 / side 6 (1/lam+2/beta1 = 12?)"),
-                                (0.25, 1 / 3, "1/lam+2/beta1 = 10, side 7"),
-                                (0.2, 0.5, "joint 8 / side 6 (9, 7)"),
-                                (0.25, 0.5, "joint 7 / side 5 (8, 6)")):
-        best = None
-        for alpha in np.arange(0.010, 0.0801, 0.002):
-            L, tA = best_L(alpha, theta)
-            if L <= 0:
-                continue
-            R = R_value(alpha, theta, beta1, nu=200)
-            net = L - lam * R
-            if best is None or net > best[0]:
-                best = (net, alpha, L, R, tA)
-        net, alpha, L, R, tA = best
-        print(f"  lam={lam:.4f} beta1={beta1:.4f} [{label}]: best alpha={alpha:.3f} thetaA={tA:.4f} "
-              f"L={L:.4f} R={R:.4f} net={net:+.4f}  -> Omega(n(N-n)) < {1/lam + 2/beta1:.3f}, side < {1/lam + 1/beta1:.3f}")
-

@@ -154,7 +154,11 @@ For $(n_1,L)=1$ the Hecke operator $T_{n_1}$ is self-adjoint on $S_2(\Gamma_0(L)
 \[
 |a_H(n_2)|^2\le\|H\|^2\sum_{f\in\mathcal B}|a_f(n_2)|^2=4\pi n_2\Delta_L(n_2,n_2)\|H\|^2,
 \]
-and for $n_2\le L^{1/2}$ the error term in \eqref{eq:petersson} is $\ll d(L)\,d_3(n_2)\,n_2^{3/2}\log(2n_2)/L^{3/2}\ll d(L)d_3(n_2)L^{-3/4}\log(2L)\ll1$, so $\Delta_L(n_2,n_2)\le C'$.
+and for $n_2\le L^{1/2}$ the error term in \eqref{eq:petersson} is
+\[
+\ll d(L)\,d_3(n_2)\,\frac{n_2^{3/2}\log(2n_2)}{L^{3/2}}\ll d(L)\,d_3(n_2)\,\frac{\log(2L)}{L^{3/4}}\ll1,
+\]
+so $\Delta_L(n_2,n_2)\le C'$.
 \end{proof}
 
 \begin{theorem}\label{thm:unif}
@@ -181,10 +185,13 @@ U_q\,\theta^2(m'z)=\theta^2(qm'z)\quad(q\equiv3\ (4)).
 \begin{lemma}\label{lem:reduce}
 Let $p$ be an odd prime with $p\mid N$ and $p\mid m$, $p\nmid m'$.
 \begin{enumerate}
-\item[(i)] If $p\equiv1\ (4)$ and $m=pm_1$ with $p\nmid m_1$: $T(pm_1,m';N)=2T(m_1,m';N/p)-T(m_1,pm';N/p)$.
-\item[(ii)] If $p\equiv1\ (4)$ and $m=p^2m_1$: $T(p^2m_1,m';N)=2T(pm_1,m';N/p)-T(m_1,m';N/p^2)$, where the last term is $0$ if $p^2\nmid N$.
-\item[(iii)] If $p\equiv3\ (4)$ and $m=pm_1$ with $p\nmid m_1$: $T(pm_1,m';N)=T(m_1,pm';N/p)$.
-\item[(iv)] If $p\equiv3\ (4)$ and $m=p^2m_1$: $T(p^2m_1,m';N)=T(m_1,m';N/p^2)$, which is $0$ if $p^2\nmid N$.
+\item[(i)] If $p\equiv1\ (4)$ and $m=pm_1$ with $p\nmid m_1$, then
+\[T(pm_1,m';N)=2T(m_1,m';N/p)-T(m_1,pm';N/p).\]
+\item[(ii)] If $p\equiv1\ (4)$ and $m=p^2m_1$, then
+\[T(p^2m_1,m';N)=2T(pm_1,m';N/p)-T(m_1,m';N/p^2),\]
+where the last term is $0$ if $p^2\nmid N$.
+\item[(iii)] If $p\equiv3\ (4)$ and $m=pm_1$ with $p\nmid m_1$, then $T(pm_1,m';N)=T(m_1,pm';N/p)$.
+\item[(iv)] If $p\equiv3\ (4)$ and $m=p^2m_1$, then $T(p^2m_1,m';N)=T(m_1,m';N/p^2)$, which is $0$ if $p^2\nmid N$.
 \end{enumerate}
 The same holds with the roles of $m$ and $m'$ exchanged. Consequently, if $v_p(mm')\le2$ for every odd prime $p$, then $T(m,m';N)$ is a linear combination with integer coefficients of terms $T(\tilde m,\tilde m';\tilde N)$ with coprime $\tilde m,\tilde m'$, $\tilde N\mid N$, $v_2(\tilde N)=v_2(N)$, $(\tilde m\tilde m',\tilde N)=1$ and $\tilde m\tilde m'\le mm'$, the sum of the absolute values of the coefficients being at most $\prod_{p\mid(mm',N)}6v_p(N)\le 6^{\omega(N)}d(N)$. Since the identities hold for the modular forms themselves, they hold for the Eisenstein parts $M$ and the cusp parts separately.
 \end{lemma}
