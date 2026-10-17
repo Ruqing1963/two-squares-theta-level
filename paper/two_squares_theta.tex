@@ -4,6 +4,9 @@
 \usepackage{graphicx}
 \usepackage{microtype}
 \usepackage[colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue]{hyperref}
+\setlength{\textfloatsep}{10pt plus 2pt minus 2pt}
+\setlength{\floatsep}{8pt plus 2pt minus 2pt}
+\setlength{\intextsep}{8pt plus 2pt minus 2pt}
 
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{lemma}[theorem]{Lemma}
@@ -185,30 +188,27 @@ U_q\,\theta^2(m'z)=\theta^2(qm'z)\quad(q\equiv3\ (4)).
 \begin{lemma}\label{lem:reduce}
 Let $p$ be an odd prime with $p\mid N$ and $p\mid m$, $p\nmid m'$.
 \begin{enumerate}
-\item[(i)] If $p\equiv1\ (4)$ and $m=pm_1$ with $p\nmid m_1$, then
-\[T(pm_1,m';N)=2T(m_1,m';N/p)-T(m_1,pm';N/p).\]
-\item[(ii)] If $p\equiv1\ (4)$ and $m=p^2m_1$, then
-\[T(p^2m_1,m';N)=2T(pm_1,m';N/p)-T(m_1,m';N/p^2),\]
-where the last term is $0$ if $p^2\nmid N$.
+\item[(i)] If $p\equiv1\ (4)$ and $m=pm_1$ with $p\nmid m_1$, then $T(pm_1,m';N)=2T(m_1,m';N/p)-T(m_1,pm';N/p)$.
+\item[(ii)] If $p\equiv1\ (4)$ and $m=p^2m_1$, then $T(p^2m_1,m';N)=2T(pm_1,m';N/p)-T(m_1,m';N/p^2)$, where the last term is $0$ if $p^2\nmid N$.
 \item[(iii)] If $p\equiv3\ (4)$ and $m=pm_1$ with $p\nmid m_1$, then $T(pm_1,m';N)=T(m_1,pm';N/p)$.
 \item[(iv)] If $p\equiv3\ (4)$ and $m=p^2m_1$, then $T(p^2m_1,m';N)=T(m_1,m';N/p^2)$, which is $0$ if $p^2\nmid N$.
 \end{enumerate}
-The same holds with the roles of $m$ and $m'$ exchanged. Consequently, if $v_p(mm')\le2$ for every odd prime $p$, then $T(m,m';N)$ is a linear combination with integer coefficients of terms $T(\tilde m,\tilde m';\tilde N)$ with coprime $\tilde m,\tilde m'$, $\tilde N\mid N$, $v_2(\tilde N)=v_2(N)$, $(\tilde m\tilde m',\tilde N)=1$ and $\tilde m\tilde m'\le mm'$, the sum of the absolute values of the coefficients being at most $\prod_{p\mid(mm',N)}6v_p(N)\le 6^{\omega(N)}d(N)$. Since the identities hold for the modular forms themselves, they hold for the Eisenstein parts $M$ and the cusp parts separately.
+The same holds with the roles of $m$ and $m'$ exchanged. Consequently, if $v_p(mm')\le2$ for every odd prime $p$, then $T(m,m';N)$ is a linear combination with integer coefficients of terms $T(\tilde m,\tilde m';\tilde N)$ with coprime $\tilde m,\tilde m'$, $\tilde N\mid N$, $v_2(\tilde N)=v_2(N)$, $(\tilde m\tilde m',\tilde N)=1$ and $\tilde m\tilde m'\le mm'$, the sum of the absolute values of the coefficients being at most $\prod_{p\mid(mm',N)}4v_p(N)\le 4^{\omega(N)}d(N)$. Since the identities hold for the modular forms themselves, they hold for the Eisenstein parts $M$ and the cusp parts separately.
 \end{lemma}
 \begin{proof}
 In case (i), $\theta^2(mz)=\Phi(pz)$ with $\Phi=\theta^2(m_1\,\cdot)$, so
 \[
 T(pm_1,m';N)=a_{N/p}\bigl(\theta^2(m_1z)\,U_p\theta^2(m'z)\bigr),
 \]
-and \eqref{eq:Up} gives the claim; (iii) is the same with the second identity. In case (ii), $\theta^2(mz)=\Phi(pz)$ with $\Phi=\theta^2(pm_1\,\cdot)$, so $T=2T(pm_1,m';N/p)-T(pm_1,pm';N/p)$, and $T(pm_1,pm';N')=T(m_1,m';N'/p)$ (or $0$ if $p\nmid N'$) because the form is $p$ times $Q_{m_1,m'}$; (iv) is similar. For the last assertion fix $p$ with $p\mid(mm',N)$ and iterate: when $v_p(\tilde m\tilde m')=1$ we apply (i) or (iii), when it is $2$ we apply (ii) or (iv). On the right-hand sides the two coefficients are coprime again, $v_p(\tilde N)$ has decreased by at least one, and exactly one term still contains $p$ in its coefficients (with $v_p=1$); the others are of the final form. The coefficient of the continuing term has absolute value at most $2$ (it is $\pm1$ times the previous one in (i), (iii) and at most twice the initial one in (ii)), so the finished terms have coefficients of absolute value at most $4$. After at most $v_p(N)$ steps either $p\nmid\tilde N$ or $p\nmid\tilde m\tilde m'$, and the sum of the absolute values of all coefficients produced is at most $4v_p(N)+2\le6v_p(N)$. Treating the primes of $(mm',N)$ one after the other gives the bound $\prod_p 6v_p(N)\le6^{\omega(N)}d(N)$. The Eisenstein and cuspidal parts of $\Theta$ are preserved by $U_p$ and by $z\mapsto pz$.
+and \eqref{eq:Up} gives the claim; (iii) is the same with the second identity. In case (ii), $\theta^2(mz)=\Phi(pz)$ with $\Phi=\theta^2(pm_1\,\cdot)$, so $T=2T(pm_1,m';N/p)-T(pm_1,pm';N/p)$, and $T(pm_1,pm';N')=T(m_1,m';N'/p)$ (or $0$ if $p\nmid N'$) because the form is $p$ times $Q_{m_1,m'}$; (iv) is similar. For the last assertion fix $p$ with $p\mid(mm',N)$ and iterate: when $v_p(\tilde m\tilde m')=1$ we apply (i) or (iii), when it is $2$ we apply (ii) or (iv). On the right-hand sides the two coefficients are coprime again, $v_p(\tilde N)$ has decreased by at least one, and exactly one term still contains $p$ in its coefficients (with $v_p=1$); the others are of the final form. The coefficient of the continuing term has absolute value at most $2$ (it equals $2$ in (ii), which can only be the first step, and is $\pm1$ times the previous one in (i), (iii)), so each finished term has a coefficient of absolute value at most $4$, and the finished term produced by (ii) has coefficient $-1$. After at most $v_p(N)$ steps either $p\nmid\tilde N$ or $p\nmid\tilde m\tilde m'$, and the sum of the absolute values of all coefficients produced is at most $1+4(v_p(N)-1)+2<4v_p(N)$ if the first step is (ii) and at most $2v_p(N)+1\le 3v_p(N)$ otherwise. Treating the primes of $(mm',N)$ one after the other gives the bound $\prod_p 4v_p(N)\le4^{\omega(N)}d(N)$. The Eisenstein and cuspidal parts of $\Theta$ are preserved by $U_p$ and by $z\mapsto pz$.
 \end{proof}
 
 \begin{corollary}\label{cor:unif}
 For coprime odd $m,m'$ with $v_p(mm')\le2$ for all $p$, and $N$ with $v_2(N)\le1$,
 \[
-T(m,m';N)=M(m,m';N)+O_\e\bigl(6^{\omega(N)}d(N)^2\,N^{1/2}(mm')^{1/4+\e}\bigr),
+T(m,m';N)=M(m,m';N)+O_\e\bigl(4^{\omega(N)}d(N)^2\,N^{1/2}(mm')^{1/4+\e}\bigr),
 \]
-and $6^{\omega(N)}d(N)^2\le d(N)^{4}$.
+and $4^{\omega(N)}d(N)^2\le d(N)^{4}$.
 \end{corollary}
 
 %=====================================================================================================
@@ -411,9 +411,9 @@ $(1009,1013)$ & 1022117 & 0.036 & 0.29 & 0.61 & 0.55\\
 \label{tab:num}
 \end{table}
 
-\begin{figure}[ht]
+\begin{figure}[htbp]
 \centering
-\includegraphics[width=0.78\textwidth]{sup_error.pdf}
+\includegraphics[width=0.66\textwidth]{sup_error.pdf}
 \caption{The data of Table~\ref{tab:num} for $X=2^{21}$ (all pairs computed), with the lines $(mm')^{-1/4}$ and $(mm')^{1/4}$ for comparison. The supremum does not grow with the level; the root mean square decreases like $(mm')^{-1/4}$.}
 \label{fig:sup}
 \end{figure}
@@ -421,7 +421,7 @@ $(1009,1013)$ & 1022117 & 0.036 & 0.29 & 0.61 & 0.55\\
 Two features stand out. First, the root mean square decreases like $(mm')^{-1/4}$. By the Rankin--Selberg method, the mean square of $a_G(n)/\sqrt n$ over $n\le Y$ tends to $(4\pi)^2\|G\|^2/\mathrm{vol}(\Gamma_0(4mm')\backslash\HH)$, and the volume is $\asymp mm'$; so the data say $\|G\|\asymp(mm')^{1/4}$, i.e.\ Lemma~\ref{lem:waibel} is sharp up to $N^\e$. (Waibel's lower bound \cite[Theorem~3]{Waibel} gives only $\|G\|^2\gg1/\min(m,m')$ for our forms.) Second, the supremum over $N$ does not grow with $mm'$ at all---it decreases---while Theorem~\ref{thm:unif} allows growth like $(mm')^{1/4}$. The gap is the Cauchy--Schwarz step in Lemma~\ref{lem:hecke}: the coefficient $a_G(N)$ is a sum over $\asymp mm'$ Hecke eigenforms of terms whose moduli are controlled by $\|G\|$, and the inequality is sharp only if their phases align, which the data say they never do. The growth in $N$ between $X=2^{21}$ and $2^{23}$ is by a factor $1.0$--$1.2$, as expected from Deligne's bound (the suprema are attained at $N$ with $16$--$96$ divisors). We therefore expect:
 
 \begin{conjecture}\label{conj}
-For coprime $m,m'$ and $(N,mm')=1$, $T(m,m';N)=M(m,m';N)+O_\e\bigl(N^{1/2+\e}\bigr)$ uniformly in $m,m'$. Consequently $r(n)r(N-n)$ has level of distribution $1/2$, and the bounds of Theorem~\ref{thm:main} can be replaced by $8$ and $5$.
+For coprime odd $m,m'$ and $N\ge1$ with $(N,mm')=1$ and $v_2(N)\le1$, $T(m,m';N)=M(m,m';N)+O_\e\bigl(N^{1/2+\e}\bigr)$ uniformly in $m,m'$. Consequently $r(n)r(N-n)$ has level of distribution $1/2$, and the bounds of Theorem~\ref{thm:main} can be replaced by $8$ and $5$.
 \end{conjecture}
 
 The conjecture is the exact analogue, for $r(n)$ and the sum orientation, of the uniformity in Topacogullari's theorem \cite{Top} for the divisor function, without the $7/64$; it would follow from a uniform bound for the quantity $\sum_f\langle\Theta,f\rangle a_f(N)/\|f\|^2$ over a Hecke basis, i.e.\ from a first moment of the central values $L(1/2,f)L(1/2,f\otimes\chi)$ twisted by $\lambda_f(N)$ over the weight-$2$ forms of level $4mm'$.
@@ -441,7 +441,7 @@ and archived at Zenodo, \href{https://doi.org/10.5281/zenodo.23438288}{doi:10.52
 \begin{thebibliography}{99}
 \bibitem{AL} A.~O.~L.~Atkin, J.~Lehner, \emph{Hecke operators on $\Gamma_0(m)$}, Math. Ann. \textbf{185} (1970), 134--160.
 \bibitem{BF} J.~Br\"udern, \'E.~Fouvry, \emph{Lagrange's four squares theorem with almost prime variables}, J. reine angew. Math. \textbf{454} (1994), 59--96.
-\bibitem{Chen2} R.~Chen, \emph{Even integers as sums of two sums of two squares with few prime factors}, preprint (2026), doi:10.5281/zenodo.23137626.
+\bibitem{Chen2} R.~Chen, \emph{Even integers as sums of two sums of two squares with few prime factors}, preprint (2026), \href{https://doi.org/10.5281/zenodo.23137626}{doi:10.5281/zenodo.23137626}.
 \bibitem{Deligne} P.~Deligne, \emph{La conjecture de Weil. I}, Inst. Hautes \'Etudes Sci. Publ. Math. \textbf{43} (1974), 273--307.
 \bibitem{IK} H.~Iwaniec, E.~Kowalski, \emph{Analytic Number Theory}, Amer. Math. Soc. Colloq. Publ. \textbf{53}, 2004.
 \bibitem{ILS} H.~Iwaniec, W.~Luo, P.~Sarnak, \emph{Low lying zeros of families of $L$-functions}, Inst. Hautes \'Etudes Sci. Publ. Math. \textbf{91} (2000), 55--131.
@@ -449,7 +449,7 @@ and archived at Zenodo, \href{https://doi.org/10.5281/zenodo.23438288}{doi:10.52
 \bibitem{IwaTopics} H.~Iwaniec, \emph{Topics in Classical Automorphic Forms}, Grad. Stud. Math. \textbf{17}, Amer. Math. Soc., 1997.
 \bibitem{Kitaoka} Y.~Kitaoka, \emph{A note on Hecke operators and theta-series}, Nagoya Math. J. \textbf{42} (1971), 189--195.
 \bibitem{Siegel} C.~L.~Siegel, \emph{\"Uber die analytische Theorie der quadratischen Formen}, Ann. of Math. (2) \textbf{36} (1935), 527--606.
-\bibitem{Top} B.~Topacogullari, \emph{On a certain additive divisor problem}, Acta Arith. \textbf{181} (2017), 143--172; arXiv:1512.05770.
+\bibitem{Top} B.~Topacogullari, \emph{On a certain additive divisor problem}, Acta Arith. \textbf{181} (2017), 143--172; \href{https://arxiv.org/abs/1512.05770}{arXiv:1512.05770}.
 \bibitem{Waibel} F.~Waibel, \emph{Uniform bounds for norms of theta series and arithmetic applications}, Math. Proc. Cambridge Philos. Soc. \textbf{173} (2022), 669--691.
 \end{thebibliography}
 
