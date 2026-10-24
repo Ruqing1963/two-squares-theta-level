@@ -17,9 +17,9 @@ The new input is a level of distribution 1/2 for the weighted sequence r(n) r(N 
 representations as a sum of two squares. For coprime m, m′ the sum T(m, m′; N) = Σ_{ma + m′b = N} r(a) r(b) is the
 N-th coefficient of the weight-2 theta series θ²(mz)θ²(m′z) of the quaternary form m(x² + y²) + m′(z² + w²).
 Siegel's theorem gives the main term as a product of local densities; the Petersson norm of the cuspidal part G
-satisfies ‖G‖² ≪ (mm′)^ε (Theorem 1.2, proved in Part II,
-[two-squares-mean-square](https://github.com/Ruqing1963/two-squares-mean-square), with Waibel's cusp
-decomposition; Waibel's general theorem, Math. Proc. Camb. Phil. Soc. 173 (2022), gives (mm′)^{1/2+ε}); and
+satisfies ‖G‖² ≪ (mm′)^ε (Theorem 1.2, proved in Section 2.5 with Waibel's decomposition of the norm over the
+cusps: for this family the expansion at every cusp is a theta series of A(x²+y²)+B(z²+w²) with AB ≍ mm′;
+Waibel's general theorem, Math. Proc. Camb. Phil. Soc. 173 (2022), gives (mm′)^{1/2+ε}); and
 Deligne's bound, applied through the Hecke operator T_{n₁} rather than through the Petersson formula directly,
 turns this into
 
@@ -94,7 +94,9 @@ The identities T = M for the levels 4 and 12 (no cusp forms) are built-in consis
 ## Citation
 
 See `CITATION.cff`. The manuscript is archived at Zenodo: DOI [10.5281/zenodo.23618710](https://doi.org/10.5281/zenodo.23618710)
-(version 2, bounds 9 and 6). Version 3 (bounds 8 and 5, using Theorem 1.2 from Part II) is the current manuscript in `paper/`.
+(version 2, bounds 9 and 6). Version 3 (bounds 8 and 5, self-contained) is the current manuscript in `paper/`;
+Part II ([two-squares-mean-square](https://github.com/Ruqing1963/two-squares-mean-square)) contains the mean-square
+and almost-all-N results and the numerical measurement of the norm.
 
 ## License
 
