@@ -1,4 +1,8 @@
 ﻿primes up to 10000000: kappa in [0.67238629, 0.67238642], correction product in [0.89899105, 0.89899177]
 c_h in [1.501360, 1.501362]
 direct: (log P) * prod_(2<p<P) (1-h(p)) = 1.501320  (slow convergence, for orientation only)
-c_1 = net c_h^2/(1024 alpha^2) >= 0.2615
+kappa_0 in [0.738596, 0.738596]
+c_2h = kappa_0 c_h^2 in [1.66486, 1.66486]
+direct: (log P)^2 * prod_(2<p<P) (1-2h(p)) = 1.66477  (slow convergence, for orientation only)
+c_1 = net c_2h/(1024 alpha^2) >= 0.1932
+(with the product normalisation prod (1-h)^2 one would get net c_h^2/(1024 alpha^2) = 0.2615; that normalisation is incorrect, see Proposition 4.3)

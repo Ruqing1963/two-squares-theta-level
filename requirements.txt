@@ -1,0 +1,5 @@
+# Versions used to produce the output files in results/ and the figures in figures/ (Python 3.12.4, Windows 11).
+numpy==1.26.4
+scipy==1.13.1
+mpmath==1.3.0
+matplotlib==3.8.4
