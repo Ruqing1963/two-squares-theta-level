@@ -4,5 +4,6 @@ direct: (log P) * prod_(2<p<P) (1-h(p)) = 1.501320  (slow convergence, for orien
 kappa_0 in [0.738596, 0.738596]
 c_2h = kappa_0 c_h^2 in [1.66486, 1.66486]
 direct: (log P)^2 * prod_(2<p<P) (1-2h(p)) = 1.66477  (slow convergence, for orientation only)
-c_1 = net c_2h/(1024 alpha^2) >= 0.1932
+c_1 (level 1/2, bounds 8 and 5) = net c_2h/(512 alpha^2) >= 0.2325
+c_1 (level 2/5, bounds 9 and 6) = net c_2h/(1024 alpha^2) >= 0.1932
 (with the product normalisation prod (1-h)^2 one would get net c_h^2/(1024 alpha^2) = 0.2615; that normalisation is incorrect, see Proposition 4.3)

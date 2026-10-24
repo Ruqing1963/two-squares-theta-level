@@ -16,7 +16,6 @@
 \newtheorem{corollary}[theorem]{Corollary}
 \theoremstyle{remark}
 \newtheorem{remark}[theorem]{Remark}
-\newtheorem{conjecture}[theorem]{Conjecture}
 
 \newcommand{\Z}{\mathbb{Z}}
 \newcommand{\Q}{\mathbb{Q}}
@@ -43,7 +42,7 @@
 \begin{document}
 
 \begin{abstract}
-Let $N\equiv 2\pmod 4$ be large. We prove that the number of $n<N$ such that $n$ and $N-n$ are both sums of two squares, $\Omega(n(N-n))\le 9$ and $\max(\Omega(n),\Omega(N-n))\le 6$ is $\gg N/(\log N)^2$; the two bounds hold simultaneously for the same $n$. The previous bounds, obtained by sifting the primes $\equiv 3\pmod 4$ and switching, were $11$ and $8$. The new input is a level of distribution $2/5$ for the weighted sequence $r(n)r(N-n)$, where $r$ counts representations as a sum of two squares. For coprime $m,m'$ the sum $\sum_{ma+m'b=N}r(a)r(b)$ is the $N$-th coefficient of the weight-two theta series of $m(x^2+y^2)+m'(z^2+w^2)$; combining Waibel's uniform bound for the Petersson norm of the cuspidal part of a theta series with Deligne's bound through the Hecke operators, and reducing the non-coprime cases by the operators $U_p$, we obtain $\sum_{ma+m'b=N}r(a)r(b)=\text{(Siegel main term)}+O(d(N)N^{1/2}(mm')^{1/4+\e})$ uniformly in $m,m'$. The theorem and the level $2/5$ are unconditional. In numerical experiments over a finite range the error does not grow with $mm'$; we formulate the resulting uniform bound as a conjecture, which would give the level of distribution $1/2$ and the bounds $8$ and $5$.
+Let $N\equiv 2\pmod 4$ be large. We prove that the number of $n<N$ such that $n$ and $N-n$ are both sums of two squares, $\Omega(n(N-n))\le 8$ and $\max(\Omega(n),\Omega(N-n))\le 5$ is $\gg N/(\log N)^2$; the two bounds hold simultaneously for the same $n$. The previous bounds, obtained by sifting the primes $\equiv 3\pmod 4$ and switching, were $11$ and $8$. The new input is a level of distribution $1/2$ for the weighted sequence $r(n)r(N-n)$, where $r$ counts representations as a sum of two squares. For coprime $m,m'$ the sum $\sum_{ma+m'b=N}r(a)r(b)$ is the $N$-th coefficient of the weight-two theta series of $m(x^2+y^2)+m'(z^2+w^2)$. Its cuspidal part $G_{m,m'}$ has Petersson norm $\|G_{m,m'}\|^2\ll(mm')^{\e}$, a bound proved in Part~II of this work by computing the expansion of the theta series at every cusp of $\Gamma_0(4mm')$ (Waibel's general theorem gives $(mm')^{1/2+\e}$); combining it with Deligne's bound through the Hecke operators, and reducing the non-coprime cases by the operators $U_p$, we obtain $\sum_{ma+m'b=N}r(a)r(b)=\text{(Siegel main term)}+O(d(N)N^{1/2}(mm')^{\e})$ uniformly in $m,m'$, which is the level $1/2$. Waibel's bound alone gives the level $2/5$ and the bounds $9$ and $6$. Numerical experiments over a finite range show that the error does not grow with $mm'$ at all, and that its root mean square decreases like $(\log mm')(mm')^{-1/2}$.
 \end{abstract}
 
 \maketitle
@@ -53,50 +52,58 @@ Let $N\equiv 2\pmod 4$ be large. We prove that the number of $n<N$ such that $n$
 
 Let $r(n)=\#\{(x,y)\in\Z^2:\ x^2+y^2=n\}$, so that $r(n)=4\sum_{d\mid n}\chi(d)$ with $\chi=\chi_{-4}$ the non-trivial character modulo $4$. Every integer $N$ is a sum $n+(N-n)$ of two sums of two squares, and in \cite{Chen2} we asked for such representations in which $n$ and $N-n$ have few prime factors. For $N\equiv2\pmod4$ it was shown there, by a vector sieve in which the primes $q\equiv3\pmod4$ are sifted up to nearly $N^{1/2}$ and the survivors with two large such primes are removed by a switching argument, that there are $\gg N/(\log N)^2$ integers $n<N$ with $n$, $N-n$ sums of two squares and $\Omega(n(N-n))\le 11$, and $\gg N/(\log N)^2$ with $\max(\Omega(n),\Omega(N-n))\le 8$.
 
-Here we take a different route: instead of sifting the primes $\equiv3\pmod 4$ we count with the weight $r(n)r(N-n)$, which vanishes unless both $n$ and $N-n$ are sums of two squares. The price is that the sequence $r(n)r(N-n)$ must be shown to be well distributed in arithmetic progressions, and the gain is that no inert prime has to be sifted and no switching is needed. We prove a level of distribution $2/5$ (Theorem~\ref{thm:level}), and the sieve then gives the following.
+Here we take a different route: instead of sifting the primes $\equiv3\pmod 4$ we count with the weight $r(n)r(N-n)$, which vanishes unless both $n$ and $N-n$ are sums of two squares. The price is that the sequence $r(n)r(N-n)$ must be shown to be well distributed in arithmetic progressions, and the gain is that no inert prime has to be sifted and no switching is needed. We prove a level of distribution $1/2$ (Theorem~\ref{thm:level}), and the sieve then gives the following.
 
 \begin{theorem}\label{thm:main}
 Let $N\equiv2\pmod 4$ be sufficiently large. Then
 \begin{multline*}
-\#\bigl\{1\le n<N:\ n=x^2+y^2,\ N-n=z^2+w^2,\ \Omega(n(N-n))\le 9,\ \max(\Omega(n),\Omega(N-n))\le 6\bigr\}\\
+\#\bigl\{1\le n<N:\ n=x^2+y^2,\ N-n=z^2+w^2,\ \Omega(n(N-n))\le 8,\ \max(\Omega(n),\Omega(N-n))\le 5\bigr\}\\
 \ge\ c_1\,\Sg_r(N)\,\frac{N}{(\log N)^2},
 \end{multline*}
 where $c_1>0$ is an absolute constant and
 \begin{equation}\label{eq:Sr}
 \Sg_r(N)=\prod_{\substack{p\mid N\\ p>2}}\frac{p-1}{p-2}
 \end{equation}
-is the singular series of the binary Goldbach problem; in particular $\Sg_r(N)\ge1$. The integers counted are coprime to $N$, and each of $n$, $N-n$ is a product of distinct primes $\equiv1\pmod 4$ exceeding $N^{9/250}$.
+is the singular series of the binary Goldbach problem; in particular $\Sg_r(N)\ge1$. The integers counted are coprime to $N$, and each of $n$, $N-n$ is a product of distinct primes $\equiv1\pmod 4$ exceeding $N^{6/125}$.
 \end{theorem}
 
-The constant can be made explicit, $c_1=0.19$ being admissible (Section~\ref{sec:sieve}); we have not tried to optimise it. That the arithmetic factor is the Goldbach singular series is explained in Section~\ref{sec:level}: under the weight $r(n)r(N-n)$ the events $p\mid n$ and $p\mid N-n$ have the same density $h(p)$ and are mutually exclusive, so the density of $p\nmid n(N-n)$ is $1-2h(p)$, and $(p-1)/(p-2)$ is the ratio of the local factor at a prime dividing $N$ to this generic factor. Both bounds $9$ and $6$ come from one set of sieve parameters, so they hold simultaneously for the same integers $n$.
+The constant can be made explicit, $c_1=0.23$ being admissible (Section~\ref{sec:sieve}); we have not tried to optimise it. That the arithmetic factor is the Goldbach singular series is explained in Section~\ref{sec:level}: under the weight $r(n)r(N-n)$ the events $p\mid n$ and $p\mid N-n$ have the same density $h(p)$ and are mutually exclusive, so the density of $p\nmid n(N-n)$ is $1-2h(p)$, and $(p-1)/(p-2)$ is the ratio of the local factor at a prime dividing $N$ to this generic factor. Both bounds $8$ and $5$ come from one set of sieve parameters, so they hold simultaneously for the same integers $n$.
+
+The analytic input is a bound for the Petersson norm of the cuspidal part $G_{m,m'}$ of the theta series $\theta^2(mz)\theta^2(m'z)$ of the quaternary form $Q_{m,m'}=m(x^2+y^2)+m'(z^2+w^2)$, with the inner product \eqref{eq:pet} below.
+
+\begin{theorem}[Part~II, {\cite[Theorem~1.1]{ChenII}}]\label{thm:norm}
+For coprime odd positive integers $m,m'$, $\|G_{m,m'}\|^2\ll_\e(mm')^{\e}$.
+\end{theorem}
+
+Waibel's uniform theorem \cite[Theorem~1]{Waibel} gives $\|G_{m,m'}\|^2\ll(mm')^{1/2+\e}$ for these forms (Lemma~\ref{lem:waibel}), which is sharp for general quaternary forms. Theorem~\ref{thm:norm} is proved in Part~II \cite{ChenII} by running Waibel's method without his general lattice-point estimate: his decomposition of the norm over the cusps of $\Gamma_0(4mm')$ and his description of the expansion of a theta series at a cusp show that, for $Q_{m,m'}$, the expansion at every cusp is again a theta series of a form $A(x_1^2+x_2^2)+B(x_3^2+x_4^2)$ with $AB\asymp mm'$, whose coefficients are $O(n^\e)$ in the range $n\ll mm'$ that matters, because the equation $A\alpha+B\beta=n$ has $O(1)$ solutions. A sketch is given in Section~\ref{subsec:norm}. The present paper used only Waibel's bound in its first two versions; everything below is written so that the reader can see what Lemma~\ref{lem:waibel} alone gives (the level $2/5$ and the bounds $9$ and $6$, Remark~\ref{rem:half}) and what Theorem~\ref{thm:norm} adds.
 
 \subsection*{Summary of contributions}
 We separate what is proved here from what is taken from the literature, and what is proved from what is conjectured.
 \begin{enumerate}[label=(\alph*),leftmargin=2em]
-\item \emph{The arithmetic result.} Theorem~\ref{thm:main} improves the bounds $11$ and $8$ of \cite{Chen2} to $9$ and $6$, with the same order of magnitude $N/(\log N)^2$ for the count, and with both bounds holding for the same integers.
-\item \emph{A uniform coefficient bound.} The analytic input taken from the literature is Waibel's bound for the Petersson norm of the cuspidal part $G_{m,m'}$ of the theta series of a quaternary form \cite{Waibel}, together with Deligne's theorem \cite{Deligne}. A norm bound does not by itself control a single Fourier coefficient uniformly in the level: the Petersson formula applied at $n=N$ loses a factor $N^{1/4}$ when the level is small compared with $N^{1/2}$. Our contribution here is the passage from the norm to the $N$-th coefficient uniformly in $m,m'$: the part of $N$ coprime to the level is moved into a Hecke operator, whose operator norm is controlled by Deligne's bound (Lemma~\ref{lem:hecke}), and the primes of $mm'$ dividing $N$ are removed by an exact recursion with the operators $U_p$ whose coefficients we count (Lemma~\ref{lem:reduce}). The result is the uniform estimate \eqref{eq:unif} below.
-\item \emph{The sieve set-up.} We prove the level of distribution $2/5$ for the weighted sequence $r(n)r(N-n)$ (Theorem~\ref{thm:level}). With this weight the inert primes have density $\ll q^{-2}$ and need not be sifted, so the sieve is a two-dimensional vector sieve of two linear components, without the switching step of \cite{Chen2}, and the final numerical inequality is correspondingly simpler (Section~\ref{sec:sieve}, Appendix~\ref{app:numerics}). The two components are not independent, the events $p\mid n$ and $p\mid N-n$ being mutually exclusive; the small primes are therefore sifted from the product $n(N-n)$ by the fundamental lemma and only the large ones by the vector sieve (Proposition~\ref{prop:W}).
-\item \emph{Logical status.} Unconditional: Theorem~\ref{thm:main}, the uniform bound \eqref{eq:unif}, the level of distribution $2/5$ (Theorem~\ref{thm:level}) and the bounds $9$ and $6$. Conditional on Conjecture~\ref{conj}: the level $1/2$ and the bounds $8$ and $5$ (Remark~\ref{rem:half}); they are never used in the proof of Theorem~\ref{thm:main}. Numerical: the experiments of Section~\ref{sec:numerics} measure how the error term depends on $mm'$ over a finite range; they motivate Conjecture~\ref{conj} and enter no proof. The only computer-assisted step in a proof is the verification of the inequality $L-\lambda R>0$ of Section~\ref{sec:sieve}, which is carried out in interval arithmetic.
+\item \emph{The arithmetic result.} Theorem~\ref{thm:main} improves the bounds $11$ and $8$ of \cite{Chen2} to $8$ and $5$, with the same order of magnitude $N/(\log N)^2$ for the count, and with both bounds holding for the same integers.
+\item \emph{A uniform coefficient bound.} The analytic inputs are the norm bound of Theorem~\ref{thm:norm}, proved in Part~II \cite{ChenII} with the tools of Waibel \cite{Waibel}, and Deligne's theorem \cite{Deligne}. A norm bound does not by itself control a single Fourier coefficient uniformly in the level: the Petersson formula applied at $n=N$ loses a factor $N^{1/4}$ when the level is small compared with $N^{1/2}$. Our contribution here is the passage from the norm to the $N$-th coefficient uniformly in $m,m'$: the part of $N$ coprime to the level is moved into a Hecke operator, whose operator norm is controlled by Deligne's bound (Lemma~\ref{lem:hecke}), and the primes of $mm'$ dividing $N$ are removed by an exact recursion with the operators $U_p$ whose coefficients we count (Lemma~\ref{lem:reduce}). The result is the uniform estimate \eqref{eq:unif} below, in which the dependence on $mm'$ is only $(mm')^\e$.
+\item \emph{The sieve set-up.} We prove the level of distribution $1/2$ for the weighted sequence $r(n)r(N-n)$ (Theorem~\ref{thm:level}). With this weight the inert primes have density $\ll q^{-2}$ and need not be sifted, so the sieve is a two-dimensional vector sieve of two linear components, without the switching step of \cite{Chen2}, and the final numerical inequality is correspondingly simpler (Section~\ref{sec:sieve}, Appendix~\ref{app:numerics}). The two components are not independent, the events $p\mid n$ and $p\mid N-n$ being mutually exclusive; the small primes are therefore sifted from the product $n(N-n)$ by the fundamental lemma and only the large ones by the vector sieve (Proposition~\ref{prop:W}).
+\item \emph{Logical status.} Theorem~\ref{thm:main}, the uniform bound \eqref{eq:unif} and the level $1/2$ (Theorem~\ref{thm:level}) are unconditional; they depend on Theorem~\ref{thm:norm}, whose proof is in Part~II \cite{ChenII}. With Waibel's bound (Lemma~\ref{lem:waibel}) in place of Theorem~\ref{thm:norm}, the same proofs give the error term $O(d(N)N^{1/2}(mm')^{1/4+\e})$, the level $2/5$ and the bounds $9$ and $6$ (Remark~\ref{rem:half}); this was the content of the first two versions of this paper. Numerical: the experiments of Section~\ref{sec:numerics} measure how the error term depends on $mm'$ over a finite range and enter no proof. The only computer-assisted step in a proof is the verification of the inequality $L-\lambda R>0$ of Section~\ref{sec:sieve}, which is carried out in interval arithmetic.
 \end{enumerate}
 
-\emph{Where the gain comes from.} Table~\ref{tab:compare} lists, step by step, what is taken from the literature and what is added here. Two inputs are new: the passage from the norm to a coefficient (Lemma~\ref{lem:hecke}), and the sieve structure. Their shares in the final result can be read off the sieve itself, since the numerical inequality depends on the level $\theta$ only: with the sieve of Section~\ref{sec:sieve}, the level $1/3$---which is what the Petersson formula applied directly at $n=N$ yields from Waibel's bound---gives $\Omega(n(N-n))\le 10$ and $\max\Omega\le6$, the level $2/5$ gives $9$ and $6$, and the level $1/2$ gives $8$ and $5$ (floating-point scan with \texttt{modular\_sieve\_scan.py}; only the middle pair is certified). The remaining distance to the bounds $11$ and $8$ of \cite{Chen2} is due to the change of weight: with $r(n)r(N-n)$ no inert prime has to be sifted and no switching argument is needed.
+\emph{Where the gain comes from.} Table~\ref{tab:compare} lists, step by step, what is taken from the literature and what is added here and in Part~II. Three inputs are new: the norm bound (Theorem~\ref{thm:norm}), the passage from the norm to a coefficient (Lemma~\ref{lem:hecke}), and the sieve structure. Their shares in the final result can be read off the sieve itself, since the numerical inequality depends on the level $\theta$ only: with the sieve of Section~\ref{sec:sieve}, the level $1/3$---which is what the Petersson formula applied directly at $n=N$ yields from Waibel's bound---gives $\Omega(n(N-n))\le 10$ and $\max\Omega\le6$, the level $2/5$ (Waibel's bound and Lemma~\ref{lem:hecke}) gives $9$ and $6$, and the level $1/2$ (Theorem~\ref{thm:norm} and Lemma~\ref{lem:hecke}) gives $8$ and $5$ (floating-point scan with \texttt{modular\_sieve\_scan.py}; the last two pairs are certified, Table~\ref{tab:cert}). The remaining distance to the bounds $11$ and $8$ of \cite{Chen2} is due to the change of weight: with $r(n)r(N-n)$ no inert prime has to be sifted and no switching argument is needed.
 
 \begin{table}[ht]
 \centering
 \small
 \begin{tabular}{>{\raggedright\arraybackslash}p{0.19\textwidth}>{\raggedright\arraybackslash}p{0.37\textwidth}>{\raggedright\arraybackslash}p{0.37\textwidth}}
 \hline
-Step & From the literature & Added here\\
+Step & From the literature & Added here and in Part~II\\
 \hline
 Main term & Siegel's theorem: the Eisenstein part of $\theta^2(mz)\theta^2(m'z)$ has coefficients $\prod_p\beta_p$ \cite{Siegel,Kitaoka,Waibel} & the densities \eqref{eq:betagood}--\eqref{eq:betabad}, the $2$-adic equivalence $Q_{m,m'}\cong Q_{1,1}$ for $m\equiv m'\equiv1\ (4)$, and the main term $Xh(d)h(e)$ of the sieve (Lemma~\ref{lem:densities})\\[2pt]
-Cusp part, norm & $\|G_{m,m'}\|\ll(mm')^{1/4+\e}$ \cite[Thm.~1]{Waibel} & ---\\[2pt]
-Norm $\to$ coefficient & Petersson formula at $n=N$: $|a_G(N)|\ll\|G\|N^{1/2+\e}(1+N^{1/4}(mm')^{-1/2})$, i.e.\ level of distribution $1/3$ & Lemma~\ref{lem:hecke}: $|a_G(N)|\le C\,d(N)N^{1/2}\|G\|$ via $T_{n_1}$ and Deligne's bound, i.e.\ level $2/5$ (Remark~\ref{rem:bookkeeping})\\[2pt]
+Cusp part, norm & $\|G_{m,m'}\|^2\ll(mm')^{1/2+\e}$ \cite[Thm.~1]{Waibel}; decomposition of the norm over the cusps and expansion of a theta series at a cusp \cite[(22), Lemma~12]{Waibel} & Part~II \cite{ChenII}: $\|G_{m,m'}\|^2\ll(mm')^{\e}$ (Theorem~\ref{thm:norm}), because for $Q_{m,m'}$ the expansion at every cusp is a theta series of $A(x_1^2+x_2^2)+B(x_3^2+x_4^2)$ with $AB\asymp mm'$\\[2pt]
+Norm $\to$ coefficient & Petersson formula at $n=N$: $|a_G(N)|\ll\|G\|N^{1/2+\e}(1+N^{1/4}(mm')^{-1/2})$, i.e.\ level of distribution $1/3$ with Waibel's bound & Lemma~\ref{lem:hecke}: $|a_G(N)|\le C\,d(N)N^{1/2}\|G\|$ via $T_{n_1}$ and Deligne's bound, i.e.\ level $2/5$ with Waibel's bound and $1/2$ with Theorem~\ref{thm:norm} (Remark~\ref{rem:bookkeeping})\\[2pt]
 $(N,mm')>1$ & --- & Lemma~\ref{lem:reduce}: exact reduction by $U_p$, coefficient total $\le4^{\omega(N)}d(N)$; needed for the M\"obius inversion over the divisors of $N$ in \eqref{eq:S}\\[2pt]
-Sieve & \cite{Chen2}: unweighted sequence, inert primes sifted up to $N^{1/2-\e}$, switching; bounds $11$, $8$ & weight $r(n)r(N-n)$, inert primes of density $q^{-2}$, fundamental lemma on $n(N-n)$ plus vector sieve of two linear components with Richert weights; bounds $9$, $6$ for the same $n$\\
+Sieve & \cite{Chen2}: unweighted sequence, inert primes sifted up to $N^{1/2-\e}$, switching; bounds $11$, $8$ & weight $r(n)r(N-n)$, inert primes of density $q^{-2}$, fundamental lemma on $n(N-n)$ plus vector sieve of two linear components with Richert weights; bounds $8$, $5$ for the same $n$ ($9$, $6$ at the level $2/5$)\\
 \hline
 \end{tabular}
 \medskip
-\caption{Inputs from the literature and contributions of this paper.}
+\caption{Inputs from the literature and contributions of this paper and of Part~II.}
 \label{tab:compare}
 \end{table}
 
@@ -108,18 +115,18 @@ The proof has five steps, which Sections~\ref{sec:theta}--\ref{sec:sieve} carry 
 T(m,m';N)=\sum_{ma+m'b=N}r(a)r(b)=\#\{(x,y,z,w)\in\Z^4:\ m(x^2+y^2)+m'(z^2+w^2)=N\}
 \end{equation}
 with $m\mid d^2$, $m'\mid e^2$. This is the number of representations of $N$ by the positive quaternary form $Q_{m,m'}=m(x^2+y^2)+m'(z^2+w^2)$, i.e.\ the $N$-th Fourier coefficient of the theta series $\theta^2(mz)\theta^2(m'z)$, a holomorphic modular form of weight $2$ on $\Gamma_0(4mm')$. By Siegel's theorem it is the sum of the $N$-th coefficient of an Eisenstein series, which is the product $M(m,m';N)$ of the local densities, and of the $N$-th coefficient $a_G(N)$ of a cusp form $G=G_{m,m'}$. The main terms $M$ recombine into the product form $Xh(d)h(e)$ required by the sieve (Section~\ref{sec:level}).
-\item \emph{The norm of the cusp part.} Deligne's bound controls $a_G(N)$ for each fixed form, and the whole difficulty is the uniformity in the level $4mm'$. Waibel's theorem \cite{Waibel} gives $\|G_{m,m'}\|\ll(mm')^{1/4+\e}$ for our forms (Lemma~\ref{lem:waibel}).
-\item \emph{From the norm to one coefficient.} The Petersson formula applied at the index $N$ loses a factor when the level is small compared with $N^{1/2}$. We write $N=n_1n_2$ with $n_1$ coprime to the level and move $n_1$ into the Hecke operator $T_{n_1}$, which acts on each oldform space as a scalar bounded by Deligne's theorem; the Cauchy--Schwarz step then needs the Petersson formula only at the index $n_2\in\{1,2\}$, where its off-diagonal term is negligible (Lemma~\ref{lem:hecke}). For $(N,mm')=1$ this gives $T=M+O(d(N)N^{1/2}(mm')^{1/4+\e})$ (Theorem~\ref{thm:unif}).
+\item \emph{The norm of the cusp part.} Deligne's bound controls $a_G(N)$ for each fixed form, and the whole difficulty is the uniformity in the level $4mm'$. Waibel's theorem \cite{Waibel} gives $\|G_{m,m'}\|^2\ll(mm')^{1/2+\e}$ for our forms (Lemma~\ref{lem:waibel}); Part~II \cite{ChenII} gives $\|G_{m,m'}\|^2\ll(mm')^{\e}$ (Theorem~\ref{thm:norm}, sketched in Section~\ref{subsec:norm}).
+\item \emph{From the norm to one coefficient.} The Petersson formula applied at the index $N$ loses a factor when the level is small compared with $N^{1/2}$. We write $N=n_1n_2$ with $n_1$ coprime to the level and move $n_1$ into the Hecke operator $T_{n_1}$, which acts on each oldform space as a scalar bounded by Deligne's theorem; the Cauchy--Schwarz step then needs the Petersson formula only at the index $n_2\in\{1,2\}$, where its off-diagonal term is negligible (Lemma~\ref{lem:hecke}). For $(N,mm')=1$ this gives $T=M+O(d(N)N^{1/2}(mm')^{\e})$ (Theorem~\ref{thm:unif}).
 \item \emph{Primes of $mm'$ dividing $N$.} The sieve needs $(n,N)=1$, and removing this condition by M\"obius inversion introduces forms $Q_{m,m'}$ in which primes of $mm'$ divide $N$, to which Theorem~\ref{thm:unif} does not apply. The operators $U_p$ reduce these terms exactly to the coprime case, with an integer combination whose coefficients total at most $4^{\omega(N)}d(N)$ (Lemma~\ref{lem:reduce}), and we obtain
 \begin{equation}\label{eq:unif}
-T(m,m';N)=M(m,m';N)+O_\e\bigl(d(N)^{4}N^{1/2}(mm')^{1/4+\e}\bigr)
+T(m,m';N)=M(m,m';N)+O_\e\bigl(d(N)^{4}N^{1/2}(mm')^{\e}\bigr)
 \end{equation}
 uniformly in coprime odd cube-free $m,m'$ (Corollary~\ref{cor:unif}; for $(N,mm')=1$ the factor $d(N)^4$ can be replaced by $d(N)$).
-\item \emph{Level of distribution and sieve.} Since the main term is of size $N/(mm')$, the error in \eqref{eq:unif} is smaller than the main term as long as $mm'\le N^{2/5-\e}$, and a bookkeeping argument over the moduli turns \eqref{eq:unif} into the level of distribution $2/5$ for $r(n)r(N-n)$ (Theorem~\ref{thm:level}). Under the weight $r(n)r(N-n)$ a split prime $p$ divides $n$ with density $h(p)=(2p-1)/(p(p+1))\approx 2/p$ and an inert prime only with density $1/(q(q-1))$; so sifting all primes below $N^{\alpha}$ on both sides is a vector sieve of two linear components, with no inert prime to sift and no switching. Richert's weights then bound $\Omega(n(N-n))$ and $\max(\Omega(n),\Omega(N-n))$ through one positivity condition $L-\lambda R>0$, which is verified with interval arithmetic (Section~\ref{sec:sieve} and Appendix~\ref{app:numerics}); since one set of weights gives both bounds, they hold for the same $n$.
+\item \emph{Level of distribution and sieve.} Since the main term is of size $N/(mm')$, the error in \eqref{eq:unif} is smaller than the main term as long as $mm'\le N^{1/2-\e}$, and a bookkeeping argument over the moduli turns \eqref{eq:unif} into the level of distribution $1/2$ for $r(n)r(N-n)$ (Theorem~\ref{thm:level}). Under the weight $r(n)r(N-n)$ a split prime $p$ divides $n$ with density $h(p)=(2p-1)/(p(p+1))\approx 2/p$ and an inert prime only with density $1/(q(q-1))$; so sifting all primes below $N^{\alpha}$ on both sides is a vector sieve of two linear components, with no inert prime to sift and no switching. Richert's weights then bound $\Omega(n(N-n))$ and $\max(\Omega(n),\Omega(N-n))$ through one positivity condition $L-\lambda R>0$, which is verified with interval arithmetic (Section~\ref{sec:sieve} and Appendix~\ref{app:numerics}); since one set of weights gives both bounds, they hold for the same $n$.
 \end{enumerate}
 
 \subsection*{Relation to the shifted convolution literature}
-The sum \eqref{eq:T} is a shifted convolution problem for the coefficients of $\theta^2$ with linear coefficients $m,m'$, in the ``sum'' orientation $ma+m'b=N$. For the divisor function in place of $r$ and the ``difference'' orientation $r_1n-r_2m=h$, Topacogullari \cite{Top} proved an asymptotic formula uniform in the coefficients, with an error term of the shape $(r_2x_1)^{1/2+\vartheta+\e}$ (in his notation), where $\vartheta$ is any admissible exponent towards the Ramanujan--Petersson conjecture for Maass forms, $\vartheta=7/64$ by Kim and Sarnak \cite{KimSarnak}. The two problems are structurally different, and we do not regard one result as an improvement of the other. In the difference orientation the natural spectral expansion is over the full $L^2$ spectrum of $\Gamma_0$ of the relevant level, including Maass cusp forms, whose possible exceptional eigenvalues and non-tempered local components enter through $\vartheta$. In the sum orientation, $T(m,m';N)$ is a Fourier coefficient of a \emph{holomorphic} modular form of weight $2$, so only holomorphic cusp forms occur, Deligne's theorem gives the Ramanujan--Petersson bound at all finite places, and the uniformity in the level must instead come from a bound for the Petersson norm, which Waibel supplies. The exponent $1/4$ in \eqref{eq:unif} is the price of a Cauchy--Schwarz step in the passage from the norm of $G_{m,m'}$ to a single coefficient. Numerically (Section~\ref{sec:numerics}) the quantity $\sup_N|T-M|/\sqrt N$ does not grow with $mm'$, while the root mean square decreases like $(mm')^{-1/4}$; this is consistent with Waibel's bound being sharp up to $N^\e$, and also with the error in \eqref{eq:unif} being $O(N^{1/2+\e})$ uniformly. This is Conjecture~\ref{conj}; if it holds, the level of distribution is $1/2$ and the bounds in Theorem~\ref{thm:main} improve to $8$ and $5$ (Remark~\ref{rem:half}).
+The sum \eqref{eq:T} is a shifted convolution problem for the coefficients of $\theta^2$ with linear coefficients $m,m'$, in the ``sum'' orientation $ma+m'b=N$. For the divisor function in place of $r$ and the ``difference'' orientation $r_1n-r_2m=h$, Topacogullari \cite{Top} proved an asymptotic formula uniform in the coefficients, with an error term of the shape $(r_2x_1)^{1/2+\vartheta+\e}$ (in his notation), where $\vartheta$ is any admissible exponent towards the Ramanujan--Petersson conjecture for Maass forms, $\vartheta=7/64$ by Kim and Sarnak \cite{KimSarnak}. The two problems are structurally different, and we do not regard one result as an improvement of the other. In the difference orientation the natural spectral expansion is over the full $L^2$ spectrum of $\Gamma_0$ of the relevant level, including Maass cusp forms, whose possible exceptional eigenvalues and non-tempered local components enter through $\vartheta$. In the sum orientation, $T(m,m';N)$ is a Fourier coefficient of a \emph{holomorphic} modular form of weight $2$, so only holomorphic cusp forms occur, Deligne's theorem gives the Ramanujan--Petersson bound at all finite places, and the uniformity in the level must instead come from a bound for the Petersson norm (Theorem~\ref{thm:norm}). The error term in \eqref{eq:unif} is then Deligne's bound for a single form, with no loss in the level beyond $(mm')^\e$: the Cauchy--Schwarz step in the passage from the norm to a single coefficient (Lemma~\ref{lem:hecke}) costs exactly the factor $\|G_{m,m'}\|$, which is at most $(mm')^\e$. Numerically (Section~\ref{sec:numerics}) the quantity $\sup_N|T-M|/\sqrt N$ does not grow with $mm'$ at all, while the root mean square decreases like $(\log mm')(mm')^{-1/2}$, in agreement with Theorem~\ref{thm:norm} and the Rankin--Selberg method; Part~II proves the corresponding mean-square bound and derives from it the level of distribution $1-\e$ for almost all $N$.
 
 \subsection*{Notation}
 $p$ denotes a prime $\equiv1\pmod4$ and $q$ a prime $\equiv3\pmod 4$ when the distinction matters; $\chi=\chi_{-4}$; $d(n)$ and $\omega(n)$, $\Omega(n)$ are the usual divisor and prime-factor counting functions, $d_3(n)$ the ternary divisor function; $\sigma_{-1}(n)=\sum_{t\mid n}1/t$. The Petersson inner product on $S_2(\Gamma_0(L))$ is
@@ -184,13 +191,20 @@ with the inner product \eqref{eq:pet} and a genus invariant $F(Q,s)$ defined in 
 so $\|G\|^2=\langle G,G\rangle\ll(mm')^{1/2+\e}$. Taking square roots, $\|G\|\ll(mm')^{1/4+\e/2}\le(mm')^{1/4+\e}$.
 \end{proof}
 
+\subsection{The norm for the forms $Q_{m,m'}$}\label{subsec:norm}
+Theorem~\ref{thm:norm} replaces the exponent $1/4$ of Lemma~\ref{lem:waibel} by $\e$. Its proof, given in full in Part~II \cite[Section~2]{ChenII}, uses three facts from \cite{Waibel}, and we indicate how they combine. (i)~The norm decomposes over the cusps \cite[(22)]{Waibel}: writing a fundamental domain of $\Gamma(L)$, $L=4mm'$, as a union of translates of the standard fundamental domain of $\mathrm{SL}_2(\Z)$ by coset representatives $\varrho_{a,c}t$, with $a,c$ modulo $L$, $(a,c,L)=1$, and $t$ a translation by $0\le x\le L-1$,
+\[
+\|G\|^2=\frac1{L\varphi(L)}\sum_{c\ (L)}\sum_{\substack{a\ (L)\\ (a,c,L)=1}}\int_{\bigcup_tt\mathcal F}|G|_2\varrho_{a,c}|^2\,\dd x\,\dd y ,
+\]
+and each integral is bounded by Parseval over a period in $x$ and $y\ge\sqrt3/2$, so that only the coefficients $b_\varrho(n)$ of $G|_2\varrho_{a,c}=\sum_nb_\varrho(n)e(\hat dnz/L)$ with $n\ll L$ matter, $\hat d\asymp(c,L)$. (ii)~By \cite[Lemma~12]{Waibel}, $G|_2\varrho_{a,c}$ is, up to the factor $(\det D/\det A)^{1/2}$ with $D$ a diagonal matrix of divisors of $(c,L)$, the difference of the theta series of a quaternary form $S_\varrho=(L/\hat d)DA^{-1}D$ and of its genus; so $|b_\varrho(n)|^2\ll(\det D/\det A)\bigl(r(S_\varrho,n)^2+r(\gen S_\varrho,n)^2\bigr)$. For $Q_{m,m'}$ the matrix $A$ is already diagonal, and a direct computation gives $S_\varrho\colon A(x_1^2+x_2^2)+B(x_3^2+x_4^2)$ with $A=\kappa(m'/d_{m'})d_m$, $B=\kappa(m/d_m)d_{m'}$, $d_m=(m,c)$, $d_{m'}=(m',c)$, $\kappa\in\{\frac14,\frac12,1,2,4,8\}$; in particular $AB=\kappa^2mm'$ and $(A,B)/(AB)\le4/(mm')$. (iii)~The genus term is bounded by Siegel's formula \cite[(14)]{Waibel}, $r(\gen S,n)\ll n(n,L)^{1/2}(nL)^\e/\sqrt{\det S}$, and $\sqrt{\det S}=4AB\ge mm'/4$. The point is the term $r(S_\varrho,n)$: a representation gives $\alpha=x_1^2+x_2^2$, $\beta=x_3^2+x_4^2$ with $A\alpha+B\beta=n$, and this equation has at most $n(A,B)/(AB)+1\le4n/(mm')+1$ solutions $(\alpha,\beta)$, each contributing $r(\alpha)r(\beta)\ll n^\e$; hence $r(S_\varrho,n)\ll n^\e(1+n/(mm'))$, which is $O(n^\e)$ in the range $n\ll L$ that matters. Waibel's general theorems bound $r(S,n)$ instead by a lattice-point estimate of size $n^{1+\e}/\sqrt{\det S}$, which is sharp for general quaternary forms but loses $(mm')^{1/2}$ here. Summing over the $d(L)$ classes of $(c,L)$ gives $\|G\|^2\ll L^{\e}$. Numerically, $\|G_{m,m'}\|^2\approx0.37(\log mm')^2$ for $10^2\le mm'\le1.6\cdot10^4$ \cite[Section~7]{ChenII}.
+
 \subsection{From the norm to a single coefficient}
 The Petersson formula (\cite[Prop.~2.1]{ILS}, \cite[Prop.~14.5]{IK}, stated there for all even $k\ge2$ and written here for $k=2$ and the unnormalised coefficients $a_f(n)$) gives, for an orthonormal basis $\mathcal B$ of $S_2(\Gamma_0(L))$ with respect to \eqref{eq:pet} and $n\ge1$,
 \begin{equation}\label{eq:petersson}
 \sum_{f\in\mathcal B}|a_f(n)|^2=4\pi n\,\Delta_L(n,n),\qquad
 \Delta_L(n,n)=1-2\pi\sum_{\substack{c>0\\ c\equiv0\ (L)}}\frac{S(n,n;c)}{c}\,J_1\Bigl(\frac{4\pi n}{c}\Bigr),
 \end{equation}
-where $S(m,n;c)$ is the Kloosterman sum and $J_1$ the Bessel function; the series converges absolutely by Weil's bound. The off-diagonal sum is negligible when $n$ is small compared with $L$ (Step~4 below), but not at $n=N$: there Weil's bound gives only $\Delta_L(N,N)=1+O(N^{1/2+\e}/L)$ for $(N,L)=1$ (compare \cite[Cor.~2.2]{ILS}, \cite[Cor.~14.24]{IK}, used in this form in \cite[(3)]{Waibel}), which costs a factor $1+N^{1/4+\e}L^{-1/2}$ for small levels and would give the level of distribution $1/3$ in Section~\ref{sec:level} instead of $2/5$ (Remark~\ref{rem:bookkeeping}). We route the coprime part of $N$ through a Hecke operator instead.
+where $S(m,n;c)$ is the Kloosterman sum and $J_1$ the Bessel function; the series converges absolutely by Weil's bound. The off-diagonal sum is negligible when $n$ is small compared with $L$ (Step~4 below), but not at $n=N$: there Weil's bound gives only $\Delta_L(N,N)=1+O(N^{1/2+\e}/L)$ for $(N,L)=1$ (compare \cite[Cor.~2.2]{ILS}, \cite[Cor.~14.24]{IK}, used in this form in \cite[(3)]{Waibel}), which costs a factor $1+N^{1/4+\e}L^{-1/2}$ for small levels and would give the level of distribution $1/3$ in Section~\ref{sec:level} instead of $1/2$ (Remark~\ref{rem:bookkeeping}). We route the coprime part of $N$ through a Hecke operator instead.
 
 \begin{lemma}\label{lem:hecke}
 Let $L\ge1$, $G\in S_2(\Gamma_0(L))$, and $n=n_1n_2$ with $(n_1,L)=1$, $n_2\mid L^\infty$ and $n_2\le L^{1/2}$. Then
@@ -235,15 +249,16 @@ Combining the steps, $|a_G(n)|=|a_H(n_2)|\le(4\pi C'n_2)^{1/2}\,d(n_1)n_1^{1/2}\
 \begin{theorem}\label{thm:unif}
 Let $m,m'$ be coprime odd positive integers and $N\ge1$ with $(N,mm')=1$ and $v_2(N)\le1$. Then
 \[
-T(m,m';N)=M(m,m';N)+O_\e\bigl(d(N)\,N^{1/2}(mm')^{1/4+\e}\bigr).
+T(m,m';N)=M(m,m';N)+O_\e\bigl(d(N)\,N^{1/2}(mm')^{\e}\bigr).
 \]
+With Lemma~\ref{lem:waibel} in place of Theorem~\ref{thm:norm} the error term is $O_\e(d(N)N^{1/2}(mm')^{1/4+\e})$.
 \end{theorem}
 \begin{proof}
-$T-M=a_G(N)$ with $G\in S_2(\Gamma_0(4mm'))$. Apply Lemma~\ref{lem:hecke} with $L=4mm'$, $n_1$ the odd part of $N$ (coprime to $L$ because $(N,mm')=1$) and $n_2=2^{v_2(N)}\in\{1,2\}$; then $n_2\mid L^\infty$ and $n_2\le2\le L^{1/2}$ since $L\ge4$. Finally $d(n_1)\le d(N)$ and Lemma~\ref{lem:waibel} bounds $\|G\|$.
+$T-M=a_G(N)$ with $G\in S_2(\Gamma_0(4mm'))$. Apply Lemma~\ref{lem:hecke} with $L=4mm'$, $n_1$ the odd part of $N$ (coprime to $L$ because $(N,mm')=1$) and $n_2=2^{v_2(N)}\in\{1,2\}$; then $n_2\mid L^\infty$ and $n_2\le2\le L^{1/2}$ since $L\ge4$. Finally $d(n_1)\le d(N)$, and Theorem~\ref{thm:norm}, resp.\ Lemma~\ref{lem:waibel}, bounds $\|G\|$.
 \end{proof}
 
 \begin{remark}
-For fixed $m,m'$ the error term $O(d(N)N^{1/2})$ is Deligne's bound and cannot be improved. The point of Theorem~\ref{thm:unif} is the dependence on $mm'$; see Section~\ref{sec:numerics} for what it seems to be in truth.
+For fixed $m,m'$ the error term $O(d(N)N^{1/2})$ is Deligne's bound and cannot be improved. The point of Theorem~\ref{thm:unif} is that the dependence on $mm'$ is only $(mm')^\e$; the data of Section~\ref{sec:numerics} show that the supremum of $|T-M|/\sqrt N$ over $N$ in a fixed range does not grow with $mm'$ at all.
 \end{remark}
 
 \subsection{Primes of $mm'$ dividing $N$}
@@ -310,14 +325,14 @@ so $T(25,1;50)=3T(1,1;2)-2T(1,5;2)$; numerically, $64=3\cdot24-2\cdot4$, with co
 \begin{corollary}\label{cor:unif}
 For coprime odd $m,m'$ with $v_p(mm')\le2$ for all $p$, and $N$ with $v_2(N)\le1$,
 \[
-T(m,m';N)=M(m,m';N)+O_\e\bigl(4^{\omega(N)}d(N)^2\,N^{1/2}(mm')^{1/4+\e}\bigr),
+T(m,m';N)=M(m,m';N)+O_\e\bigl(4^{\omega(N)}d(N)^2\,N^{1/2}(mm')^{\e}\bigr),
 \]
-and $4^{\omega(N)}d(N)^2\le d(N)^{4}$. Moreover $M(m,m';N)\ll_\eta 4^{\omega(N)}d(N)\,N^{1+\eta}/(mm')$ for every $\eta>0$.
+and $4^{\omega(N)}d(N)^2\le d(N)^{4}$. Moreover $M(m,m';N)\ll_\eta 4^{\omega(N)}d(N)\,N^{1+\eta}/(mm')$ for every $\eta>0$. (With Lemma~\ref{lem:waibel} alone, the error term is $O_\e(4^{\omega(N)}d(N)^2N^{1/2}(mm')^{1/4+\e})$.)
 \end{corollary}
 \begin{proof}
 By Lemma~\ref{lem:reduce}, $T(m,m';N)-M(m,m';N)=\sum_jc_j\bigl(T(\tilde m_j,\tilde m_j';\tilde N_j)-M(\tilde m_j,\tilde m_j';\tilde N_j)\bigr)$ with $\sum_j|c_j|\le4^{\omega(N)}d(N)$, and each term satisfies the hypotheses of Theorem~\ref{thm:unif}, which bounds it by
 \[
-\ll d(\tilde N_j)\,\tilde N_j^{1/2}(\tilde m_j\tilde m_j')^{1/4+\e}\le d(N)\,N^{1/2}(mm')^{1/4+\e},
+\ll d(\tilde N_j)\,\tilde N_j^{1/2}(\tilde m_j\tilde m_j')^{\e}\le d(N)\,N^{1/2}(mm')^{\e},
 \]
 because $\tilde N_j\mid N$ and $\tilde m_j\tilde m_j'\le mm'$. This gives the first claim. Since $d(N)\ge2^{\omega(N)}$ we have $4^{\omega(N)}\le d(N)^2$, hence $4^{\omega(N)}d(N)^2\le d(N)^4$. For the bound on $M$ apply \eqref{eq:Mtrivial} to each $M(\tilde m_j,\tilde m_j';\tilde N_j)$ and use $\tilde N_j/(\tilde m_j\tilde m_j')\le N/(mm')$.
 \end{proof}
@@ -379,10 +394,11 @@ since $1-2h(p)=(p-1)(p-2)/(p(p+1))$ for $p\equiv1\pmod 4$ and $1-2h(q)=(q-2)(q+1
 Put $R(d,e)=S(d,e)-M(d,e)$.
 
 \begin{theorem}\label{thm:level}
-Let $N\equiv2\pmod4$, $\e>0$ and $D=N^{2/5-\e}$. Then
+Let $N\equiv2\pmod4$, $\e>0$ and $D=N^{1/2-\e}$. Then
 \[
 \sum_{\substack{de\le D,\ (d,e)=1\\ (de,2N)=1}}\mu^2(de)\,d_3(de)\,|R(d,e)|\ \ll_\e\ N^{1-\e/3}.
 \]
+The same holds with $D=N^{2/5-\e}$ if Corollary~\ref{cor:unif} is used with the error term $(mm')^{1/4+\e}$ of Lemma~\ref{lem:waibel}.
 \end{theorem}
 \begin{proof}
 \emph{Set-up.} By \eqref{eq:S}, $R(d,e)$ is a sum of terms $\pm c\,(T-M)(\tilde m,\tilde m';N')$ with $N'\in\{N,N/2\}$ and coefficients $(\tilde m,\tilde m')=(t_1m,m')$, $m=ds$, $m'=es'$, $s\mid d$, $s'\mid e$, $t_1\mid t^2$, $t\mid N^\flat$; thus
@@ -393,12 +409,12 @@ These coefficients are coprime, odd and cube-free because $d,e,t$ are pairwise c
 \begin{enumerate}[label=(F\arabic*),leftmargin=3em]
 \item The product of the divisor-type factors attached to one term, namely $d_3(de)$, the coefficient $|c_d(m)c_e(m')c_t(t_1)|\le3^{\omega(d)+\omega(e)+\omega(t)}$, and the factor $4^{\omega(N)}d(N)^2\le d(N)^4$ of Corollary~\ref{cor:unif}, is $\le N^{\eta}$.
 \item For fixed $(d,e)$, the number of tuples $(s,s',t,t_1)$ is at most $d(d)d(e)\,d(N^\flat)\,3^{\omega(N)}\le N^{\eta}$.
-\item $\sum_{k\le D}d(k)/k\le N^\eta$ and $\sum_{k\le D}d(k)k^{1/4}\le D^{5/4}N^{\eta}$; here $d(k)$ counts the pairs $(d,e)$ with $de=k$.
-\item $\tilde m\tilde m'=t_1ss'\cdot de\le N^\e D=N^{2/5}\le N$ whenever $t_1ss'\le N^\e$, so $(\tilde m\tilde m')^{\eta}\le N^\eta$.
+\item $\sum_{k\le D}d(k)/k\le N^\eta$ and $\sum_{k\le D}d(k)\le DN^{\eta}$; here $d(k)$ counts the pairs $(d,e)$ with $de=k$.
+\item $\tilde m\tilde m'=t_1ss'\cdot de\le N^\e D=N^{1/2}\le N$ whenever $t_1ss'\le N^\e$, so $(\tilde m\tilde m')^{\eta}\le N^\eta$.
 \end{enumerate}
 We use two bounds for $|T-M|$. The first is Corollary~\ref{cor:unif}:
 \begin{equation}\label{eq:bd1}
-|T(\tilde m,\tilde m';N')-M(\tilde m,\tilde m';N')|\ll 4^{\omega(N)}d(N)^2\,N^{1/2}(\tilde m\tilde m')^{1/4+\eta}.
+|T(\tilde m,\tilde m';N')-M(\tilde m,\tilde m';N')|\ll 4^{\omega(N)}d(N)^2\,N^{1/2}(\tilde m\tilde m')^{\eta}.
 \end{equation}
 The second is the trivial bound
 \begin{equation}\label{eq:bd2}
@@ -410,43 +426,42 @@ for $T$, the pairs $(a,b)$ with $\tilde ma+\tilde m'b=N'$ have $a$ in a fixed re
 \[
 \ll N^{\eta}\cdot N^{\eta}\sum_{de\le D}\Bigl(\frac{N^{1+2\eta-\e}}{de}+N^{2\eta}\Bigr)
 \ll N^{1-\e+4\eta}\sum_{k\le D}\frac{d(k)}{k}+N^{4\eta}\sum_{k\le D}d(k)
-\ll N^{1-\e+5\eta}+N^{2/5+5\eta}.
+\ll N^{1-\e+5\eta}+N^{1/2+5\eta}.
 \]
 
-\emph{Terms with $t_1ss'\le N^\e$.} By \eqref{eq:bd1}, (F1), (F2) and (F4), $(\tilde m\tilde m')^{1/4+\eta}\le N^{\eta}(t_1ss')^{1/4}(de)^{1/4}\le N^{\eta+\e/4}(de)^{1/4}$, and their total contribution is at most
+\emph{Terms with $t_1ss'\le N^\e$.} By \eqref{eq:bd1}, (F1), (F2) and (F4), $(\tilde m\tilde m')^{\eta}\le N^{\eta}$, and their total contribution is at most
 \[
-\ll N^{\eta}\cdot N^{\eta}\cdot N^{1/2}\cdot N^{\eta+\e/4}\sum_{k\le D}d(k)k^{1/4}
-\ll N^{1/2+\e/4+4\eta}D^{5/4}.
-\]
-Since $D^{5/4}=N^{(2/5-\e)\cdot5/4}=N^{1/2-5\e/4}$, the exponents add up to
-\[
-\frac12+\frac\e4+4\eta+\frac12-\frac{5\e}4=1-\e+4\eta .
+\ll N^{\eta}\cdot N^{\eta}\cdot N^{1/2}\cdot N^{\eta}\sum_{k\le D}d(k)
+\ll N^{1/2+4\eta}D=N^{1-\e+4\eta}.
 \]
 
-\emph{Conclusion.} Both contributions are $\ll N^{1-\e+5\eta}+N^{2/5+5\eta}$. With $\eta=\e/10$ this is $N^{1-\e/2}+N^{2/5+\e/2}$, and both are $\le N^{1-\e/3}$ for $\e\le2/5$ (the second because $2/5+\e/2\le1-\e/3$ for $\e\le18/25$). For $\e>2/5$ we have $D<1$ and the sum is empty.
+\emph{Conclusion.} Both contributions are $\ll N^{1-\e+5\eta}+N^{1/2+5\eta}$. With $\eta=\e/10$ this is $N^{1-\e/2}+N^{1/2+\e/2}$, and both are $\le N^{1-\e/3}$ for $\e\le1/2$ (the second because $1/2+\e/2\le1-\e/3$ for $\e\le3/5$). For $\e>1/2$ we have $D<1$ and the sum is empty.
+
+\emph{The level $2/5$ from Lemma~\ref{lem:waibel}.} If \eqref{eq:bd1} is replaced by the bound $4^{\omega(N)}d(N)^2N^{1/2}(\tilde m\tilde m')^{1/4+\eta}$ of Corollary~\ref{cor:unif} with Lemma~\ref{lem:waibel}, take $D=N^{2/5-\e}$. For $t_1ss'\le N^\e$ we have $(\tilde m\tilde m')^{1/4+\eta}\le N^{\eta+\e/4}(de)^{1/4}$, and with $\sum_{k\le D}d(k)k^{1/4}\le D^{5/4}N^\eta$ the contribution is $\ll N^{1/2+\e/4+4\eta}D^{5/4}=N^{1-\e+4\eta}$, since $D^{5/4}=N^{1/2-5\e/4}$; the other terms contribute $\ll N^{1-\e+5\eta}+N^{2/5+5\eta}$ as before, and the conclusion is the same.
 \end{proof}
 
 \begin{remark}\label{rem:bookkeeping}
-The exponent $2/5$ is $1/(2(1+\beta))$ with $\beta=1/4$ the exponent of $mm'$ in Theorem~\ref{thm:unif}: the balancing condition is $N^{1/2}D^{1+\beta}\cdot D\approx N$ with the factor $D^{\beta}$ from the level $\tilde m\tilde m'\approx de\le D$ and the factor $D$ from the number of moduli. The terms with $m$ close to $d^2$, where the level $\tilde m\tilde m'$ is as large as $(de)^2$, are harmless because of the trivial bound. A uniform bound with $\beta=0$ (Conjecture~\ref{conj}) would give the level $1/2$; the bound $|a_G(N)|\ll\|G\|N^{1/2+\e}(1+N^{1/4}(mm')^{-1/2})$ obtained from the Petersson formula directly (Section~\ref{sec:theta}) has, in the relevant range $mm'\le N^{1/2}$, the shape $N^{3/4+\e}(mm')^{-1/4}$, and the same balancing gives $N^{3/4}D^{3/4}\approx N$, i.e.\ the level $1/3$. For reference, the exponents of the proof are collected in the following ledger ($\eta=\e/10$):
+The exponent $1/2$ is $1/(2(1+\beta))$ with $\beta=0$ the exponent of $mm'$ in Theorem~\ref{thm:unif}: the balancing condition is $N^{1/2}D^{1+\beta}\cdot D\approx N$ with the factor $D^{\beta}$ from the level $\tilde m\tilde m'\approx de\le D$ and the factor $D$ from the number of moduli. The terms with $m$ close to $d^2$, where the level $\tilde m\tilde m'$ is as large as $(de)^2$, are harmless because of the trivial bound. With Waibel's bound alone, $\beta=1/4$ and the level is $2/5$; the bound $|a_G(N)|\ll\|G\|N^{1/2+\e}(1+N^{1/4}(mm')^{-1/2})$ obtained from the Petersson formula directly (Section~\ref{sec:theta}), with $\|G\|\ll(mm')^{1/4+\e}$, has in the relevant range $mm'\le N^{1/2}$ the shape $N^{3/4+\e}(mm')^{-1/4}$, and the same balancing gives $N^{3/4}D^{3/4}\approx N$, i.e.\ the level $1/3$. For reference, the exponents of the proof are collected in the following ledger ($\eta=\e/10$):
 \begin{center}\small
 \begin{tabular}{lll}
 \hline
  & terms with $t_1ss'\le N^\e$ & terms with $t_1ss'>N^\e$\\
 \hline
-one $|T-M|$ & $N^{1/2}(\tilde m\tilde m')^{1/4+\eta}$ by \eqref{eq:bd1} & $N^{2\eta}(N/(\tilde m\tilde m')+1)$ by \eqref{eq:bd2}\\
-level $\tilde m\tilde m'=t_1ss'de$ & $(\tilde m\tilde m')^{1/4+\eta}\le N^{\e/4+\eta}(de)^{1/4}$ & $N/(\tilde m\tilde m')<N^{1-\e}/(de)$\\
+one $|T-M|$ & $N^{1/2}(\tilde m\tilde m')^{\eta}$ by \eqref{eq:bd1} & $N^{2\eta}(N/(\tilde m\tilde m')+1)$ by \eqref{eq:bd2}\\
+level $\tilde m\tilde m'=t_1ss'de$ & $(\tilde m\tilde m')^{\eta}\le N^{\eta}$ & $N/(\tilde m\tilde m')<N^{1-\e}/(de)$\\
 divisor factors, (F1) and (F2) & $N^{2\eta}$ & $N^{2\eta}$\\
-sum over $de=k\le D$, (F3) & $\sum d(k)k^{1/4}\le D^{5/4}N^\eta$ & $\sum d(k)/k\le N^\eta$, $\sum d(k)\le DN^\eta$\\
-total & $N^{1/2+\e/4+4\eta}D^{5/4}=N^{1-\e+4\eta}$ & $N^{1-\e+5\eta}+N^{2/5+5\eta}$\\
+sum over $de=k\le D$, (F3) & $\sum d(k)\le DN^\eta$ & $\sum d(k)/k\le N^\eta$, $\sum d(k)\le DN^\eta$\\
+total & $N^{1/2+4\eta}D=N^{1-\e+4\eta}$ & $N^{1-\e+5\eta}+N^{1/2+5\eta}$\\
 \hline
 \end{tabular}
 \end{center}
+{\sloppy With Waibel's bound ($\beta=1/4$, $D=N^{2/5-\e}$) the left column reads $N^{1/2}(\tilde m\tilde m')^{1/4+\eta}$, $(\tilde m\tilde m')^{1/4+\eta}\le N^{\e/4+\eta}(de)^{1/4}$, $N^{2\eta}$, $\sum d(k)k^{1/4}\le D^{5/4}N^\eta$ and $N^{1/2+\e/4+4\eta}D^{5/4}=N^{1-\e+4\eta}$, and the right column acquires the term $N^{2/5+5\eta}$ in place of $N^{1/2+5\eta}$.\par}
 \end{remark}
 
 %=====================================================================================================
 \section{The sieve}\label{sec:sieve}
 
-We keep the notation of Section~\ref{sec:level}. Fix $0<\alpha<\beta_1<2/5$ and $\lambda>0$, and put
+We keep the notation of Section~\ref{sec:level}. Let $0<\theta\le1/2$ be a level of distribution for which Theorem~\ref{thm:level} holds with $D=N^{\theta-\e}$ (by Theorem~\ref{thm:level}, $\theta=1/2$, and hence every smaller $\theta$, is admissible; $\theta=2/5$ is admissible on the basis of Lemma~\ref{lem:waibel} alone). Fix $0<\alpha<\beta_1<\theta$ and $\lambda>0$, and put
 \[
 z=N^{\alpha},\qquad y_1=N^{\beta_1},\qquad P=\prod_{\substack{2<p<z\\ p\nmid N}}p .
 \]
@@ -477,7 +492,7 @@ because $\sum_{p\mid n}\log p=\log n<\log N=\beta_1^{-1}\log y_1$ and each term 
 \end{proof}
 
 \begin{proposition}[Main term]\label{prop:W}
-Let $\theta=2/5$, $\theta_A\in(0,\theta)$, $s_A=\theta_A/\alpha$, $s_B=(\theta-\theta_A)/\alpha$, and let $F_1,f_1$ be the upper and lower functions of the linear sieve. Put
+Let $\theta_A\in(0,\theta)$, $s_A=\theta_A/\alpha$, $s_B=(\theta-\theta_A)/\alpha$, and let $F_1,f_1$ be the upper and lower functions of the linear sieve. Put
 \[
 L=f_1(s_A)F_1(s_B)+F_1(s_A)f_1(s_B)-F_1(s_A)F_1(s_B),\qquad
 R=2\int_\alpha^{\beta_1}\Bigl(1-\frac u{\beta_1}\Bigr)U(\theta-u)\,\frac{\dd u}{u},
@@ -550,7 +565,7 @@ V_0V_1^2=\prod_{\substack{2<p<z_0\\ p\nmid N}}(1-2h(p))\prod_{\substack{z_0\le p
 \]
 since each factor of the last product is $1+O(p^{-2})$.
 
-\emph{Remainders.} The moduli occurring are the coprime square-free pairs $(D_1,D_2)=(d_1d,d_2e)$ with $D_1D_2\le D_0D_AD_B\le N^{\theta-\e/2}$ for large $N$, and each pair arises from exactly one triple $(d_0,d,e)$ ($d_1$ and $d_2$ are the parts of $D_1$, $D_2$ composed of primes below $z_0$). Since $|\rho^\pm\lambda^\pm\lambda^\pm|\le1$, Theorem~\ref{thm:level} with $\e/2$ in place of $\e$ shows that the remainders contribute $O(N^{1-\e/6})=o(XV)$. This gives $\sum_{(n(N-n),P)=1}w(n)\ge(L+o(1))XV$.
+\emph{Remainders.} The moduli occurring are the coprime square-free pairs $(D_1,D_2)=(d_1d,d_2e)$ with $D_1D_2\le D_0D_AD_B\le N^{\theta-\e/2}\le N^{1/2-\e/2}$ for large $N$, and each pair arises from exactly one triple $(d_0,d,e)$ ($d_1$ and $d_2$ are the parts of $D_1$, $D_2$ composed of primes below $z_0$). Since $|\rho^\pm\lambda^\pm\lambda^\pm|\le1$, Theorem~\ref{thm:level} with $\e/2$ in place of $\e$ shows that the remainders contribute $O(N^{1-\e/6})=o(XV)$. This gives $\sum_{(n(N-n),P)=1}w(n)\ge(L+o(1))XV$.
 
 \emph{The weights.} For the Richert weights we need an upper bound for $\sum w(n)$ over $n\in\cA$ with $(n(N-n),P)=1$ and $p\mid n$, for a fixed prime $z\le p<y_1$, $p\nmid N$, $p=N^u$. Here $1_{(n(N-n),P)=1}\le c^+a^+b^+$, with Rosser upper-bound weights of total level $N^{\theta-u-\e}$; the subsequence $\{n\in\cA:\ p\mid n\}$ has density $h(p)h(d)h(e)$ on $d\mid n$, $e\mid N-n$ (and $p\nmid de$ automatically, as $p\ge z$), and the same argument bounds its sifted weight by $(U(\theta-u)+o(1))\,h(p)\,XV$, the split of the level between the two sides being free. The remainders are again controlled by Theorem~\ref{thm:level}, since the number of ways of writing a modulus as $p\cdot D_1\cdot D_2$ is at most $d_3(pD_1D_2)$, which absorbs the sum over $p$. Since $\sum_{p\equiv1\,(4),\ N^u\le p<N^{u+\dd u}}h(p)=(1+o(1))\,\dd u/u$ by the prime number theorem in progressions ($h(p)=2/p+O(p^{-2})$ on half of the primes), and the side $N-n$ contributes the same amount, the weighted sum is bounded by $(R+o(1))XV$, the factor $2$ in $R$ accounting for the two sides.
 
@@ -563,29 +578,30 @@ and the last product is $1+O(\omega(N)/z)$. Writing $1-2h(p)=(1-h(p))^2\cdot\fra
 \end{proof}
 
 \subsection{Numerical verification}
-The parameters $\alpha,\lambda,\beta_1$ are chosen so that $L-\lambda R>0$ with $1/\lambda+2/\beta_1\le10$ and $1/\lambda+1/\beta_1\le7$, which by Lemma~\ref{lem:omega} gives the bounds $9$ and $6$. Figure~\ref{fig:landscape} shows the function $L-\lambda R$ in the $(\lambda,\beta_1)$ plane for the $\alpha$ of Table~\ref{tab:cert}, together with the curves $1/\lambda+2/\beta_1=k+1$ and $1/\lambda+1/\beta_1=k'+1$: at the level $2/5$ the region giving $(9,6)$ meets the region $L-\lambda R>0$, while the region giving $(8,5)$ does not; at the level $1/2$ (conditional, Remark~\ref{rem:half}) it does. The figure is drawn with floating-point sieve functions and is not part of the proof; the three parameter sets of Table~\ref{tab:cert} are certified in interval arithmetic (Lemma~\ref{lem:numerics}, Appendix~\ref{app:numerics}).
+The parameters $\alpha,\lambda,\beta_1$ are chosen so that $L-\lambda R>0$ with $1/\lambda+2/\beta_1\le9$ and $1/\lambda+1/\beta_1\le6$, which by Lemma~\ref{lem:omega} gives the bounds $8$ and $5$. Figure~\ref{fig:landscape} shows the function $L-\lambda R$ in the $(\lambda,\beta_1)$ plane for the levels $2/5$ and $1/2$ and the $\alpha$ of Table~\ref{tab:cert}, together with the curves $1/\lambda+2/\beta_1=k+1$ and $1/\lambda+1/\beta_1=k'+1$: at the level $1/2$ the region giving $(8,5)$ meets the region $L-\lambda R>0$; at the level $2/5$ only the region giving $(9,6)$ does. The figure is drawn with floating-point sieve functions and is not part of the proof; the four parameter sets of Table~\ref{tab:cert} are certified in interval arithmetic (Lemma~\ref{lem:numerics}, Appendix~\ref{app:numerics}).
 
 \begin{figure}[t]
 \centering
 \includegraphics[width=\textwidth]{sieve_landscape.pdf}
-\caption{$L-\lambda R$ as a function of $(\lambda,\beta_1)$ for $\theta=2/5$, $\alpha=9/250$ (left) and $\theta=1/2$, $\alpha=6/125$ (right), with the best split $\theta_A$ in each case. Black: $L-\lambda R=0$. Grey and violet curves: $1/\lambda+2/\beta_1=10$, $9$ and $1/\lambda+1/\beta_1=7$, $6$; the bound $\Omega(n(N-n))\le k$ (resp.\ $\max\Omega\le k'$) holds above the corresponding curve. Hatched: parameters with $L-\lambda R>0$ giving $(9,6)$ (single hatching) and $(8,5)$ (cross hatching). Dots: the parameter sets of Table~\ref{tab:cert} and of Remark~\ref{rem:half}. Floating point (\texttt{plot\_sieve\_landscape.py}), for orientation only.}
+\caption{$L-\lambda R$ as a function of $(\lambda,\beta_1)$ for $\theta=2/5$, $\alpha=9/250$ (left) and $\theta=1/2$, $\alpha=6/125$ (right), with the best split $\theta_A$ in each case. Black: $L-\lambda R=0$. Grey and violet curves: $1/\lambda+2/\beta_1=10$, $9$ and $1/\lambda+1/\beta_1=7$, $6$; the bound $\Omega(n(N-n))\le k$ (resp.\ $\max\Omega\le k'$) holds above the corresponding curve. Hatched: parameters with $L-\lambda R>0$ giving $(9,6)$ (single hatching) and $(8,5)$ (cross hatching). Dots: the parameter sets of Table~\ref{tab:cert}. Floating point (\texttt{plot\_sieve\_landscape.py}), for orientation only.}
 \label{fig:landscape}
 \end{figure}
 
 \begin{table}[ht]
 \centering
 \small
-\begin{tabular}{cccccccc}
+\begin{tabular}{ccccccccc}
 \hline
-$\alpha$ & $\lambda$ & $\beta_1$ & $1/\lambda+2/\beta_1$ & $1/\lambda+1/\beta_1$ & $L\ge$ & $R\le$ & $L-\lambda R\ge$\\
+$\theta$ & $\alpha$ & $\lambda$ & $\beta_1$ & $1/\lambda+2/\beta_1$ & $1/\lambda+1/\beta_1$ & $L\ge$ & $R\le$ & $L-\lambda R\ge$\\
 \hline
-$9/250$ & $3/10$ & $3/10$ & $10$ & $20/3$ & $0.998974$ & $2.816690$ & $0.153967$\\
-$4/125$ & $7/30$ & $7/20$ & $10$ & $50/7$ & $0.999637$ & $3.471422$ & $0.189639$\\
-$9/250$ & $1/3$ & $3/10$ & $29/3$ & $19/3$ & $0.998974$ & $2.816690$ & $0.060078$\\
+$1/2$ & $6/125$ & $1/3$ & $17/50$ & $151/17$ & $101/17$ & $0.997718$ & $2.498893$ & $0.164754$\\
+$2/5$ & $9/250$ & $3/10$ & $3/10$ & $10$ & $20/3$ & $0.998974$ & $2.816690$ & $0.153967$\\
+$2/5$ & $4/125$ & $7/30$ & $7/20$ & $10$ & $50/7$ & $0.999637$ & $3.471422$ & $0.189639$\\
+$2/5$ & $9/250$ & $1/3$ & $3/10$ & $29/3$ & $19/3$ & $0.998974$ & $2.816690$ & $0.060078$\\
 \hline
 \end{tabular}
 \medskip
-\caption{Certified bounds at level $\theta=2/5$. The split $\theta_A$ is chosen on a grid near $\theta/2=1/5$ ($\theta_A=0.1998$ for $\alpha=9/250$, $\theta_A=0.1992$ for $\alpha=4/125$); any $\theta_A\in(0,\theta)$ is admissible in Proposition~\ref{prop:W}. The first line gives $\Omega(n(N-n))\le9$ and $\max(\Omega(n),\Omega(N-n))\le6$; the second $\Omega(n(N-n))\le 9$ with the larger constant; the third the same bounds as the first with $\lambda=1/3$.}
+\caption{Certified bounds. The split $\theta_A$ is chosen on a grid near $\theta/2$ ($\theta_A=0.2497$ in the first line, $0.1998$ for $\alpha=9/250$, $0.1992$ for $\alpha=4/125$); any $\theta_A\in(0,\theta)$ is admissible in Proposition~\ref{prop:W}. The first line, at the level $1/2$ of Theorem~\ref{thm:level}, gives $\Omega(n(N-n))\le8$ and $\max(\Omega(n),\Omega(N-n))\le5$ (Theorem~\ref{thm:main}). The other three lines are at the level $2/5$ that Lemma~\ref{lem:waibel} alone provides (Remark~\ref{rem:half}): the second gives $\Omega(n(N-n))\le9$ and $\max(\Omega(n),\Omega(N-n))\le6$; the third $\Omega(n(N-n))\le 9$ with a larger constant; the fourth the same bounds as the second with $\lambda=1/3$.}
 \label{tab:cert}
 \end{table}
 
@@ -597,22 +613,22 @@ The script \texttt{certify\_modular.py} carries out a finite computation with di
 \end{proof}
 
 \begin{proof}[Proof of Theorem~\ref{thm:main}]
-Take the first line of Table~\ref{tab:cert}. By Proposition~\ref{prop:W} and Lemma~\ref{lem:numerics}, $W\ge(0.153967+o(1))XV$. Since $w_n\le1$ and $w(n)\ge0$, the sum of $w(n)$ over the $n$ with $(n(N-n),P)=1$ and $w_n>0$ is at least $W$; removing the exceptional $n$ of Lemma~\ref{lem:structure} costs $O(N^{1-\alpha+\e})$. By Lemmas~\ref{lem:structure} and \ref{lem:omega} every remaining $n$ has $n$, $N-n$ sums of two squares, $\Omega(n(N-n))\le 9$, $\max(\Omega(n),\Omega(N-n))\le6$ and $w(n)=16\cdot2^{\Omega(n(N-n))}\le 2^{13}$. Hence the number of such $n$ is at least
+Take the first line of Table~\ref{tab:cert}: $\theta=1/2$, $\alpha=6/125$, $\lambda=1/3$, $\beta_1=17/50$, so that $1/\lambda+2/\beta_1=151/17<9$ and $1/\lambda+1/\beta_1=101/17<6$. By Proposition~\ref{prop:W} and Lemma~\ref{lem:numerics}, $W\ge(0.164754+o(1))XV$. Since $w_n\le1$ and $w(n)\ge0$, the sum of $w(n)$ over the $n$ with $(n(N-n),P)=1$ and $w_n>0$ is at least $W$; removing the exceptional $n$ of Lemma~\ref{lem:structure} costs $O(N^{1-\alpha+\e})$. By Lemmas~\ref{lem:structure} and \ref{lem:omega} every remaining $n$ has $n$, $N-n$ sums of two squares, $\Omega(n(N-n))\le 8$, $\max(\Omega(n),\Omega(N-n))\le5$ and $w(n)=16\cdot2^{\Omega(n(N-n))}\le 2^{12}$. Hence the number of such $n$ is at least
 \[
-\bigl(0.153967+o(1)\bigr)\,2^{-13}\cdot 8\,\Sg_r(N)\,c_{2h}\,\frac{N}{\alpha^2(\log N)^2}
-\ \ge\ 0.19\,\Sg_r(N)\frac{N}{(\log N)^2}
+\bigl(0.164754+o(1)\bigr)\,2^{-12}\cdot 8\,\Sg_r(N)\,c_{2h}\,\frac{N}{\alpha^2(\log N)^2}
+\ \ge\ 0.23\,\Sg_r(N)\frac{N}{(\log N)^2}
 \]
-for large $N$, since $0.153967\cdot 2^{-10}\cdot c_{2h}\cdot(250/9)^2\ge0.193$. Finally $\Sg_r(N)\ge1$, every factor $(p-1)/(p-2)$ exceeding $1$.
+for large $N$, since $0.164754\cdot 2^{-9}\cdot c_{2h}\cdot(125/6)^2\ge0.232$. Finally $\Sg_r(N)\ge1$, every factor $(p-1)/(p-2)$ exceeding $1$.
 \end{proof}
 
-\begin{remark}[Conditional]\label{rem:half}
-The following is conditional on Conjecture~\ref{conj} and is not used elsewhere. If the error term in Theorem~\ref{thm:unif} were $O(N^{1/2+\e})$ uniformly in $m,m'$, then Corollary~\ref{cor:unif} and Theorem~\ref{thm:level} would hold with $(mm')^{1/4+\e}$ replaced by $N^\e$ and $D=N^{1/2-\e}$, and the same computation at $\theta=1/2$ with $\alpha=6/125$, $\lambda=1/3$, $\beta_1=17/50$ (so $1/\lambda+2/\beta_1=151/17<9$, $1/\lambda+1/\beta_1=101/17<6$) certifies $L\ge0.997718$, $R\le2.498893$, $L-\lambda R\ge0.164754$, hence $\Omega(n(N-n))\le 8$ and $\max(\Omega(n),\Omega(N-n))\le5$ (script \texttt{certify\_modular.py} with the argument \texttt{1/2}).
+\begin{remark}[Waibel's bound alone]\label{rem:half}
+Without Theorem~\ref{thm:norm}, i.e.\ with Lemma~\ref{lem:waibel} as the only information on the norm, Theorem~\ref{thm:level} gives the level $2/5$, and the second line of Table~\ref{tab:cert} ($\theta=2/5$, $\alpha=9/250$, $\lambda=\beta_1=3/10$, $L-\lambda R\ge0.153967$) gives, by the same proof with $w(n)\le2^{13}$, the bounds $\Omega(n(N-n))\le9$ and $\max(\Omega(n),\Omega(N-n))\le6$ with the constant $0.19$ (since $0.153967\cdot2^{-10}\cdot c_{2h}\cdot(250/9)^2\ge0.193$) and primes exceeding $N^{9/250}$. This was Theorem~1.1 of the first two versions of this paper. Figure~\ref{fig:landscape} shows that at the level $2/5$ the pair $(8,5)$ is out of reach of these weights, so that the improvement from $(9,6)$ to $(8,5)$ is entirely due to Theorem~\ref{thm:norm}.
 \end{remark}
 
 %=====================================================================================================
-\section{Numerical evidence and a conjecture}\label{sec:numerics}
+\section{Numerical evidence}\label{sec:numerics}
 
-Nothing in this section is used in the proofs of Sections~\ref{sec:theta}--\ref{sec:sieve}. Its purpose is to measure how the error term of Theorem~\ref{thm:unif} actually depends on $mm'$, and to motivate Conjecture~\ref{conj}.
+Nothing in this section is used in the proofs of Sections~\ref{sec:theta}--\ref{sec:sieve}. Its purpose is to measure how the error term of Theorem~\ref{thm:unif} actually depends on $mm'$. Historically, these data were computed before Theorem~\ref{thm:norm} was available, and the absence of growth in $mm'$ that they show was formulated as a conjecture in the first two versions of this paper; Part~II \cite{ChenII} proves it (Theorem~\ref{thm:norm} and Corollary~1.2 there) and measures the norm $\|G_{m,m'}\|^2$ directly from the same data.
 
 \subsection{What was computed}
 The quantities $T(m,m';N)$ for all $N\le X$ are obtained at once by a fast Fourier transform convolution of the sequences $a\mapsto r(a/m)$ and $b\mapsto r(b/m')$ (with $r(x)=0$ for $x\notin\Z$), and $M(m,m';N)$ from \eqref{eq:siegel}--\eqref{eq:betabad}, with the $2$-adic density $\beta_2(N)$ obtained from exact counts of solutions of $Q(x)\equiv N$ modulo $2^{\nu}$, $\nu=v_2(N)+6$, and checked to be unchanged when $\nu$ is replaced by $\nu+1$ (script \texttt{sup\_error\_scan.py}). We record the statistics of $(T-M)/\sqrt N$ over all $N\in(X/2,X]$ with
@@ -636,7 +652,7 @@ Three checks, each with an arithmetic reason, are built into the computation.
 \begin{figure}[t]
 \centering
 \includegraphics[width=0.66\textwidth]{sup_error.pdf}
-\caption{The data of Table~\ref{tab:num} for $X=2^{21}$ (all pairs computed), with the lines $(mm')^{-1/4}$ and $(mm')^{1/4}$ for comparison. The supremum does not grow with the level; the root mean square decreases like $(mm')^{-1/4}$.}
+\caption{The data of Table~\ref{tab:num} for $X=2^{21}$ (all pairs computed), with the curve $2.7\,(\log mm')(mm')^{-1/2}$ (the median of $\mathrm{rms}\cdot(mm')^{1/2}/\log mm'$ over the sample) and a constant for comparison. The supremum does not grow with the level; the root mean square decreases like $(\log mm')(mm')^{-1/2}$.}
 \label{fig:sup}
 \end{figure}
 
@@ -665,9 +681,9 @@ $(1009,1013)$ & 1022117 & 0.036 & 0.29 & 0.61 & 0.55\\
 \end{table}
 
 \subsection{Observations}
-Two features stand out. First, the root mean square decreases like $(mm')^{-1/4}$. By the Rankin--Selberg method, the mean square of $a_G(n)/\sqrt n$ over $n\le Y$ is asymptotic to an absolute constant times $\|G\|^2/\mathrm{vol}(\Gamma_0(4mm')\backslash\HH)$, and the volume is $\asymp mm'$; so the data say $\|G\|\asymp(mm')^{1/4}$, i.e.\ Lemma~\ref{lem:waibel} appears to be sharp up to $N^\e$. (Waibel's lower bound \cite[Theorem~3]{Waibel} gives only $\|G\|^2\gg1/\min(m,m')$ for our forms.)
+Two features stand out. First, the root mean square decreases like $(\log mm')(mm')^{-1/2}$: over the whole sample the quotient $\mathrm{rms}\cdot(mm')^{1/2}/\log mm'$ lies between $2.2$ and $3.1$ (Figure~\ref{fig:sup}). This is what Theorem~\ref{thm:norm} predicts. By the Rankin--Selberg method, the mean square of $a_G(n)/\sqrt n$ over $n\le Y$ is asymptotic to an absolute constant times $\|G\|^2/\mathrm{vol}(\Gamma_0(4mm')\backslash\HH)$, the volume is $\asymp mm'$, and $\|G_{m,m'}\|^2$ grows only like $(\log mm')^2$ (Theorem~\ref{thm:norm}; numerically $\approx0.37(\log mm')^2$, \cite[Section~7]{ChenII}). In the first two versions of this paper the decay of the root mean square was read off as $(mm')^{-1/4}$ and interpreted as Lemma~\ref{lem:waibel} being sharp; that reading was wrong, as both the fit and Theorem~\ref{thm:norm} show. Part~II contains the precise measurement, including an exact check at the level $20$, where $S_2(\Gamma_0(20))$ is one-dimensional, $G_{1,5}=\frac83f_{20}$ with $f_{20}=\eta(2z)^2\eta(10z)^2$, and $\|f_{20}\|^2=0.08135$ both from the period lattice of the elliptic curve 20a1 and from the Rankin--Selberg asymptotics of the data. (Waibel's lower bound \cite[Theorem~3]{Waibel} gives $\|G\|^2\gg1/\min(m,m')$ for our forms.)
 
-Second, the supremum over $N$ does not grow with $mm'$ at all---it decreases---while Theorem~\ref{thm:unif} allows growth like $(mm')^{1/4}$. The gap is the Cauchy--Schwarz step in Lemma~\ref{lem:hecke}. Expanding in an orthogonal basis of Hecke eigenforms (Section~\ref{subsec:auto}), $a_G(N)$ is a sum of $\asymp mm'$ terms $\langle G,f\rangle a_f(N)/\|f\|^2$; Cauchy--Schwarz bounds this sum by $\|G\|$ times the square root of the Petersson sum $\sum_f|a_f(N)|^2/\|f\|^2\asymp N$, and it is attained only if the phases of the individual terms align with those of $\overline{a_f(N)}$. The data are consistent with the opposite: the terms behave like a sum with essentially random signs, whose size is about $(mm')^{-1/4}$ times the Cauchy--Schwarz bound in the root mean square, and does not exceed the size for fixed level in the supremum. Figure~\ref{fig:hist} shows the distribution of $(T-M)/\sqrt N$, divided by its root mean square, for four levels between $404$ and $16348$: the four empirical densities coincide, are symmetric and Gaussian in the bulk, with tails somewhat heavier than Gaussian (the kurtosis is $3.5$--$3.7$ and about $0.55\%$ of the values exceed three standard deviations, against $0.27\%$ for the normal law), as one expects from the divisor-type factor in Deligne's bound. The growth in $N$ between $X=2^{21}$ and $2^{23}$ is by a factor $1.0$--$1.2$, as expected from Deligne's bound (the suprema are attained at $N$ with $16$--$96$ divisors).
+Second, the supremum over $N$ does not grow with $mm'$ at all---it decreases---while Theorem~\ref{thm:unif} allows a factor $(mm')^\e$, and it is larger than the root mean square by a factor of about $(mm')^{1/2}$ at the top of the range. The gap between the two statistics is the Cauchy--Schwarz step in Lemma~\ref{lem:hecke}. Expanding in an orthogonal basis of Hecke eigenforms (Section~\ref{subsec:auto}), $a_G(N)$ is a sum of $\asymp mm'$ terms $\langle G,f\rangle a_f(N)/\|f\|^2$; Cauchy--Schwarz bounds this sum by $\|G\|$ times the square root of the Petersson sum $\sum_f|a_f(N)|^2/\|f\|^2\asymp N$, and it is attained only if the phases of the individual terms align with those of $\overline{a_f(N)}$. The data are consistent with the opposite: the terms behave like a sum with essentially random signs, whose size is about $(mm')^{-1/2}$ times the Cauchy--Schwarz bound in the root mean square (the square root of the number of terms), and does not exceed the size for fixed level in the supremum. Figure~\ref{fig:hist} shows the distribution of $(T-M)/\sqrt N$, divided by its root mean square, for four levels between $404$ and $16348$: the four empirical densities coincide, are symmetric and Gaussian in the bulk, with tails somewhat heavier than Gaussian (the kurtosis is $3.5$--$3.7$ and about $0.55\%$ of the values exceed three standard deviations, against $0.27\%$ for the normal law), as one expects from the divisor-type factor in Deligne's bound. The growth in $N$ between $X=2^{21}$ and $2^{23}$ is by a factor $1.0$--$1.2$, as expected from Deligne's bound (the suprema are attained at $N$ with $16$--$96$ divisors).
 
 \begin{figure}[t]
 \centering
@@ -677,19 +693,9 @@ Second, the supremum over $N$ does not grow with $mm'$ at all---it decreases---w
 \end{figure}
 
 \subsection{Status of the numerical evidence}
-We stress the logical status of these data. They consist of finitely many pairs $(m,m')$ and finitely many $N\le 2^{23}$, and no finite computation can establish a bound that is uniform in $m,m'$ and $N$; in particular the computations do not bear on Theorem~\ref{thm:main}, Theorem~\ref{thm:level} or Theorem~\ref{thm:unif}, which are proved independently of them. The data are compatible with Theorem~\ref{thm:unif} (and with Lemma~\ref{lem:waibel} being sharp), and they are consistent with the factor $(mm')^{1/4}$ being an artefact of the method. They are compatible with, and motivate, the following conjecture; they do not prove it, and they give no information about $N$ or $mm'$ beyond the range computed.
+We stress the logical status of these data. They consist of finitely many pairs $(m,m')$ and finitely many $N\le 2^{23}$, and no finite computation can establish a bound that is uniform in $m,m'$ and $N$; in particular the computations do not bear on Theorem~\ref{thm:main}, Theorem~\ref{thm:level} or Theorem~\ref{thm:unif}, which are proved independently of them. The data are compatible with Theorem~\ref{thm:unif}, and they suggest more: that $|T-M|\ll N^{1/2+\e}(mm')^{-1/2+\e}$ holds for \emph{every} $N$ with $(N,mm')=1$, not only in the mean square over $N$, where Part~II proves it (\cite[Theorem~1.3]{ChenII}, which gives the level of distribution $1-\e$ for almost all $N$). Such a uniform bound would give the level of distribution $1-\e$ for every $N$, and with it the bounds $5$ and $4$ in Theorem~\ref{thm:main} (\cite[Corollary~1.5]{ChenII} obtains them for almost all $N$). The data do not prove it, and they give no information about $N$ or $mm'$ beyond the range computed.
 
-\begin{conjecture}\label{conj}
-For coprime odd $m,m'$ and $N\ge1$ with $(N,mm')=1$ and $v_2(N)\le1$,
-\[
-T(m,m';N)=M(m,m';N)+O_\e\bigl(N^{1/2+\e}\bigr)
-\]
-uniformly in $m,m'$.
-\end{conjecture}
-
-If Conjecture~\ref{conj} holds, then by Lemma~\ref{lem:reduce} the same bound (with an extra factor $4^{\omega(N)}d(N)\le d(N)^3$, which may be absorbed into $N^\e$) holds for cube-free $m,m'$ with $(N,mm')>1$, the proof of Theorem~\ref{thm:level} gives the level of distribution $1/2$ for $r(n)r(N-n)$, and Remark~\ref{rem:half} gives the bounds $8$ and $5$ in place of $9$ and $6$.
-
-\subsection{An automorphic interpretation of Conjecture~\ref{conj}}\label{subsec:auto}
+\subsection{An automorphic interpretation}\label{subsec:auto}
 The following discussion is heuristic and is not used anywhere in the paper. Let $L=4mm'$ and let $\mathcal B^*$ be an orthogonal basis of $S_2(\Gamma_0(L))$ consisting of eigenforms of all $T_n$, $(n,L)=1$; by the proof of Lemma~\ref{lem:hecke} it may be taken inside the spaces $S(f)$, so every element $\varphi\in\mathcal B^*$ has $a_\varphi(n)=\lambda_f(n)\,n^{1/2}a_\varphi(1)$ for $(n,L)=1$, where $f$ is the underlying newform and $\lambda_f(n)=a_f(n)n^{-1/2}$. Since $E$ is orthogonal to cusp forms, $\langle\Theta,\varphi\rangle=\langle G,\varphi\rangle$, and for $(N,L)=1$
 \begin{equation}\label{eq:spectral}
 T(m,m';N)-M(m,m';N)=a_G(N)=\sum_{\varphi\in\mathcal B^*}\frac{\langle\Theta,\varphi\rangle}{\|\varphi\|^2}\,a_\varphi(N)
@@ -707,9 +713,9 @@ with a factor $\mathcal E_\varphi(m,m')$ built from local factors at the primes 
 T(m,m';N)-M(m,m';N)=N^{1/2}\,\mathcal S(m,m';N),\notag\\
 \mathcal S(m,m';N)=\sum_{\varphi\in\mathcal B^*}\omega_\varphi\,L(\tfrac12,f)\,L(\tfrac12,f\otimes\chi)\,\lambda_f(N),\label{eq:moment}
 \end{gather}
-with weights $\omega_\varphi=\mathcal E_\varphi(m,m')\,a_\varphi(1)/\|\varphi\|^2$, i.e.\ $N^{1/2}$ times a twisted first moment over a family of $\asymp mm'$ forms of weight $2$ and level $4mm'$. In these terms, Theorem~\ref{thm:unif} is what one gets by bounding $\mathcal S$ through Cauchy--Schwarz, with the second moment of the coefficients $\langle\Theta,\varphi\rangle$ controlled by $\|G\|^2$ (Lemma~\ref{lem:waibel}) and the second moment of $\lambda_f(N)$ controlled by the Petersson formula; this loses all cancellation among the terms of \eqref{eq:moment}, and the loss is $\|G\|\asymp(mm')^{1/4}$. In this heuristic form, Conjecture~\ref{conj} becomes the statement $\mathcal S(m,m';N)\ll_\e N^{\e}$ uniformly, i.e.\ that the sum in \eqref{eq:moment} exhibit cancellation saving $(mm')^{1/4}$ over the Cauchy--Schwarz bound. Since the summands are not of constant sign (because of $\lambda_f(N)$ and of the local factors), this cancellation cannot come from positivity, and a proof along these lines would have to exploit the oscillation of $\lambda_f(N)$ across the family. None of this constitutes a proof of Conjecture~\ref{conj}, or of \eqref{eq:RS}.
+with weights $\omega_\varphi=\mathcal E_\varphi(m,m')\,a_\varphi(1)/\|\varphi\|^2$, i.e.\ $N^{1/2}$ times a twisted first moment over a family of $\asymp mm'$ forms of weight $2$ and level $4mm'$. In these terms, Theorem~\ref{thm:unif} is what one gets by bounding $\mathcal S$ through Cauchy--Schwarz, with the second moment of the coefficients $\langle\Theta,\varphi\rangle$ controlled by $\|G\|^2\ll(mm')^\e$ (Theorem~\ref{thm:norm}) and the second moment of $\lambda_f(N)$ controlled by the Petersson formula; this gives $\mathcal S\ll N^\e(mm')^\e$ and loses all cancellation among the terms of \eqref{eq:moment}. The data of Section~\ref{sec:numerics} say that in the root mean square over $N$ the sum $\mathcal S$ is smaller than this by the factor $(mm')^{-1/2}$, the square root of the number of terms, which is what random signs would give; Part~II proves this mean-square statement \cite[Theorem~1.3]{ChenII} by a covering argument that does not use the spectral expansion. The data say moreover that no individual $N$ in the range computed exceeds the root mean square by more than a bounded factor. A proof of $\mathcal S(m,m';N)\ll N^\e(mm')^{-1/2+\e}$ for every $N$ would have to exploit the oscillation of $\lambda_f(N)$ across the family; since the summands are not of constant sign (because of $\lambda_f(N)$ and of the local factors), it cannot come from positivity.
 
-\emph{A possible approach.} The standard route to first moments of this kind is to write $L(\frac12,f)L(\frac12,f\otimes\chi)$ by an approximate functional equation of length about the square root of the analytic conductor $\asymp(mm')^2$, i.e.\ about $mm'$, to combine $\lambda_f(a)\lambda_f(N)$ by the Hecke relations, and to average over the family with the Petersson formula (as in the work of Iwaniec and Sarnak \cite{IwaniecSarnak} on first moments with harmonic weights). The diagonal terms are then explicit, and the off-diagonal terms are sums of Kloosterman sums $S(aN,b;c)$ with $c\equiv0\pmod{4mm'}$, to which Weil's bound applies. The main obstacle is that in the range relevant for the level $1/2$ one has $mm'\le N^{1/2}$, so the twist $\lambda_f(N)$ is long compared with the level, and the off-diagonal terms are not small without further cancellation in the sums over $a,b$ and $c$ (for instance from the Kuznetsov formula and bounds for sums of Kloosterman sums). We have not attempted this.
+\emph{A possible approach.} The standard route to first moments of this kind is to write $L(\frac12,f)L(\frac12,f\otimes\chi)$ by an approximate functional equation of length about the square root of the analytic conductor $\asymp(mm')^2$, i.e.\ about $mm'$, to combine $\lambda_f(a)\lambda_f(N)$ by the Hecke relations, and to average over the family with the Petersson formula (as in the work of Iwaniec and Sarnak \cite{IwaniecSarnak} on first moments with harmonic weights). The diagonal terms are then explicit, and the off-diagonal terms are sums of Kloosterman sums $S(aN,b;c)$ with $c\equiv0\pmod{4mm'}$, to which Weil's bound applies. The main obstacle is that in the range relevant for a level of distribution beyond $1/2$ one has $mm'\le N^{1-\e}$, so the twist $\lambda_f(N)$ is long compared with the level, and the off-diagonal terms are not small without further cancellation in the sums over $a,b$ and $c$ (for instance from the Kuznetsov formula and bounds for sums of Kloosterman sums). We have not attempted this.
 
 %=====================================================================================================
 \appendix
@@ -747,7 +753,7 @@ and similarly for $f^\pm_{i+1}$. Here $[s_i^-,s_i^+]$ is the enclosure of $s_i=i
 \begin{figure}[t]
 \centering
 \includegraphics[width=0.72\textwidth]{sieve_functions.pdf}
-\caption{Top: the enclosures of $F_1$ (upper) and $f_1$ (lower) computed by \texttt{certify\_modular.py}, the arguments $s_A\approx5.55$, $s_B\approx5.56$ at which $L$ is evaluated for the first line of Table~\ref{tab:cert}, and the range of arguments $t'/\alpha$, $(\theta-u-t')/\alpha$ entering the bound for $R$ (shaded). Bottom: the widths $F_1^+-F_1^-$ and $f_1^+-f_1^-$ of the enclosures on the grid, on a logarithmic scale; the jump at $s=3$, resp.\ $s=4$, is the passage from the closed forms to the recursion.}
+\caption{Top: the enclosures of $F_1$ (upper) and $f_1$ (lower) computed by \texttt{certify\_modular.py}, the arguments $s_A\approx5.55$, $s_B\approx5.56$ at which $L$ is evaluated for the second line of Table~\ref{tab:cert} ($\theta=2/5$, $\alpha=9/250$), and the range of arguments $t'/\alpha$, $(\theta-u-t')/\alpha$ entering the bound for $R$ (shaded). Bottom: the widths $F_1^+-F_1^-$ and $f_1^+-f_1^-$ of the enclosures on the grid, on a logarithmic scale; the jump at $s=3$, resp.\ $s=4$, is the passage from the closed forms to the recursion.}
 \label{fig:sievefun}
 \end{figure}
 
@@ -762,7 +768,7 @@ F_1(s)\le F^+_{\lfloor s/h_0\rfloor-1},\qquad F_1(s)\ge F^-_{\lceil s/h_0\rceil+
 \[
 L\ge f_1^-(s_A)\,F_1^-(s_B)+F_1^+(s_A)\,\bigl(f_1^-(s_B)-F_1^+(s_B)\bigr),
 \]
-with the off-grid bounds of Section~\ref{app:sieve} and outward rounding. The split $\theta_A$ is a free parameter; the script scans $801$ values in $[0.3\theta,0.7\theta]$ in floating point, keeps the best, and then evaluates the lower bound rigorously at that value. This gives $L\ge0.998974$ for $\alpha=9/250$ ($\theta_A=0.1998$, $s_A=5.5500$, $s_B=5.5611$).
+with the off-grid bounds of Section~\ref{app:sieve} and outward rounding. The split $\theta_A$ is a free parameter; the script scans $801$ values in $[0.3\theta,0.7\theta]$ in floating point, keeps the best, and then evaluates the lower bound rigorously at that value. This gives $L\ge0.997718$ for $\theta=1/2$, $\alpha=6/125$ ($\theta_A=0.2497$, $s_A=5.2031$, $s_B=5.2135$) and $L\ge0.998974$ for $\theta=2/5$, $\alpha=9/250$ ($\theta_A=0.1998$, $s_A=5.5500$, $s_B=5.5611$).
 
 \emph{The upper bound for $R$.} Divide $[\alpha,\beta_1]$ into $K=4000$ cells $[u_k,u_{k+1}]$, $u_k=\alpha+k(\beta_1-\alpha)/K$ (enclosed outward). On a cell:
 \begin{itemize}[leftmargin=2em]
@@ -774,7 +780,7 @@ Hence
 \[
 R\le 2\sum_{k=0}^{K-1}\Bigl\lceil\frac{1-u_k/\beta_1}{u_k}\Bigr\rceil^\uparrow\cdot\min_{t'}F^+_1\Bigl(\frac{t'}{\alpha}\Bigr)F^+_1\Bigl(\frac{\theta-u_{k+1}-t'}{\alpha}\Bigr)\cdot(u_{k+1}-u_k),
 \]
-every operation rounded upwards. For the first line of Table~\ref{tab:cert} this gives $R\le2.816690$, and then $L-\lambda R\ge0.153967$ with $\lambda$ rounded upwards. The other lines of Table~\ref{tab:cert} and the conditional values of Remark~\ref{rem:half} are obtained in the same way.
+every operation rounded upwards. For the first line of Table~\ref{tab:cert} this gives $R\le2.498893$, and then $L-\lambda R\ge0.164754$ with $\lambda$ rounded upwards; for the second line, $R\le2.816690$ and $L-\lambda R\ge0.153967$. The other lines of Table~\ref{tab:cert} are obtained in the same way.
 
 The verification certifies the numerical inequality $L-\lambda R>0$ only. The sieve lemmas behind Proposition~\ref{prop:W} and the $o(1)$ terms are proved, not computed.
 
@@ -814,11 +820,11 @@ The scripts behind Table~\ref{tab:num} and Figures~\ref{fig:sup}, \ref{fig:hist}
 \begin{center}
 \url{https://github.com/Ruqing1963/two-squares-theta-level}
 \end{center}
-and archived at Zenodo, \href{https://doi.org/10.5281/zenodo.23618710}{doi:10.5281/zenodo.23618710}. The numbers in the paper are those printed in the output files of the repository: Table~\ref{tab:cert} and Remark~\ref{rem:half} in \texttt{results/certify\_modular\_output.txt} and \texttt{results/certify\_modular\_output\_half.txt}; Table~\ref{tab:num} and Figure~\ref{fig:sup} in \texttt{results/sup\_error\_scan\_x21.txt} and \texttt{results/sup\_error\_scan\_x23.txt}; the constants $c_h$, $c_{2h}$ and $c_1$ in \texttt{results/singular\_constant\_output.txt}. The certification of Lemma~\ref{lem:numerics} uses directed rounding; the experiments of Section~\ref{sec:numerics} use floating point and are not certified.
+and archived at Zenodo, \href{https://doi.org/10.5281/zenodo.23618710}{doi:10.5281/zenodo.23618710}. The code and data of Part~II, including the measurement of the norm and the exact check at the level $20$, are at \url{https://github.com/Ruqing1963/two-squares-mean-square}. The numbers in the paper are those printed in the output files of the repository: Table~\ref{tab:cert} in \texttt{results/certify\_modular\_output\_half.txt} (first line) and \texttt{results/certify\_modular\_output.txt} (lines 2--4); Table~\ref{tab:num} and Figure~\ref{fig:sup} in \texttt{results/sup\_error\_scan\_x21.txt} and \texttt{results/sup\_error\_scan\_x23.txt}; the constants $c_h$, $c_{2h}$ and $c_1$ in \texttt{results/singular\_constant\_output.txt}. The certification of Lemma~\ref{lem:numerics} uses directed rounding; the experiments of Section~\ref{sec:numerics} use floating point and are not certified.
 
 \emph{Environment.} The output files in the repository were produced with Python~3.12.4, \texttt{numpy}~1.26.4, \texttt{scipy}~1.13.1, \texttt{mpmath}~1.3.0 and \texttt{matplotlib}~3.8.4 under Windows~11; the versions are pinned in \texttt{requirements.txt}, and \texttt{README.md} lists the commands that regenerate every table and figure from scratch. Each script runs in a few minutes on a laptop.
 
-\emph{What is rigorous and what is not.} Three kinds of computation occur. (1)~\texttt{certify\_modular.py} (Table~\ref{tab:cert}, Remark~\ref{rem:half}) uses interval arithmetic for the closed forms and directed rounding for everything else, as described in Appendix~\ref{app:numerics}; the six-decimal entries of Table~\ref{tab:cert} are the lines \texttt{L >=}, \texttt{R <=} and \texttt{certified:\ \ net = L - lam R >=} of its output file, and the two rational quantities are computed exactly. (2)~\texttt{singular\_constant.py} (the constants $c_h$, $c_{2h}$, $c_1$) uses floating point with explicit error margins (Appendix~\ref{app:ch}); it affects only the value of the constant in Theorem~\ref{thm:main}, not the positivity of $L-\lambda R$. (3)~\texttt{sup\_error\_scan.py} and the plotting scripts (Table~\ref{tab:num}, Figures~\ref{fig:landscape}--\ref{fig:sievefun}) use floating point without error control; they provide evidence and illustration, and nothing in the proofs depends on them.
+\emph{What is rigorous and what is not.} Three kinds of computation occur. (1)~\texttt{certify\_modular.py} (Table~\ref{tab:cert}) uses interval arithmetic for the closed forms and directed rounding for everything else, as described in Appendix~\ref{app:numerics}; the six-decimal entries of Table~\ref{tab:cert} are the lines \texttt{L >=}, \texttt{R <=} and \texttt{certified:\ \ net = L - lam R >=} of its output file, and the two rational quantities are computed exactly. (2)~\texttt{singular\_constant.py} (the constants $c_h$, $c_{2h}$, $c_1$) uses floating point with explicit error margins (Appendix~\ref{app:ch}); it affects only the value of the constant in Theorem~\ref{thm:main}, not the positivity of $L-\lambda R$. (3)~\texttt{sup\_error\_scan.py} and the plotting scripts (Table~\ref{tab:num}, Figures~\ref{fig:landscape}--\ref{fig:sievefun}) use floating point without error control; they provide evidence and illustration, and nothing in the proofs depends on them.
 \par}
 
 \indent During the preparation of this work the author used the Claude language model and the \texttt{mpmath} Python library for the computer-assisted interval arithmetic verification of Section~\ref{sec:sieve} and for the numerical experiments of Section~\ref{sec:numerics}. All analytical derivations and proofs were independently audited and verified by the author.
@@ -827,6 +833,7 @@ and archived at Zenodo, \href{https://doi.org/10.5281/zenodo.23618710}{doi:10.52
 \bibitem{AL} A.~O.~L.~Atkin, J.~Lehner, \emph{Hecke operators on $\Gamma_0(m)$}, Math. Ann. \textbf{185} (1970), 134--160.
 \bibitem{BF} J.~Br\"udern, \'E.~Fouvry, \emph{Lagrange's four squares theorem with almost prime variables}, J. reine angew. Math. \textbf{454} (1994), 59--96.
 \bibitem{Chen2} R.~Chen, \emph{Even integers as sums of two sums of two squares with few prime factors}, preprint (2026), \href{https://doi.org/10.5281/zenodo.23137626}{doi:10.5281/zenodo.23137626}.
+\bibitem{ChenII} R.~Chen, \emph{Sums of two squares with few prime factors, II: the Petersson norm of the cuspidal part of $\theta^2(mz)\theta^2(m'z)$, the level of distribution $1/2$, and almost all $N$}, preprint (2026), \url{https://github.com/Ruqing1963/two-squares-mean-square}.
 \bibitem{Deligne} P.~Deligne, \emph{La conjecture de Weil. I}, Inst. Hautes \'Etudes Sci. Publ. Math. \textbf{43} (1974), 273--307.
 \bibitem{FI} J.~Friedlander, H.~Iwaniec, \emph{Opera de Cribro}, Amer. Math. Soc. Colloq. Publ. \textbf{57}, 2010.
 \bibitem{IK} H.~Iwaniec, E.~Kowalski, \emph{Analytic Number Theory}, Amer. Math. Soc. Colloq. Publ. \textbf{53}, 2004.

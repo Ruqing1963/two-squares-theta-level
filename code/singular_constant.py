@@ -66,8 +66,12 @@ print(f"c_2h = kappa_0 c_h^2 in [{c2_lo:.5f}, {c2_hi:.5f}]")
 h2 = 2 * h
 print(f"direct: (log P)^2 * prod_(2<p<P) (1-2h(p)) = {log(P) ** 2 * exp(np.sum(np.log1p(-h2))):.5f}  (slow convergence, for orientation only)")
 
-# constant c_1 of Theorem 1.1:  c_1 = net * c_2h / (1024 alpha^2)  with net >= 0.153967, alpha = 9/250
+# constant c_1 of Theorem 1.1:  c_1 = net * 8 * c_2h / (2^(4+k) alpha^2) where Omega(n(N-n)) <= k, i.e. w(n) <= 2^(4+k).
+# Level 1/2 (Table 2, first line): net >= 0.164754, alpha = 6/125, k = 8.
+net, alpha = 0.164754, 6 / 125
+print(f"c_1 (level 1/2, bounds 8 and 5) = net c_2h/(512 alpha^2) >= {net * c2_lo / (512 * alpha ** 2):.4f}")
+# Level 2/5 (Remark 4.5, Table 2 second line): net >= 0.153967, alpha = 9/250, k = 9.
 net, alpha = 0.153967, 9 / 250
-print(f"c_1 = net c_2h/(1024 alpha^2) >= {net * c2_lo / (1024 * alpha ** 2):.4f}")
+print(f"c_1 (level 2/5, bounds 9 and 6) = net c_2h/(1024 alpha^2) >= {net * c2_lo / (1024 * alpha ** 2):.4f}")
 print(f"(with the product normalisation prod (1-h)^2 one would get net c_h^2/(1024 alpha^2) = "
       f"{net * c_lo ** 2 / (1024 * alpha ** 2):.4f}; that normalisation is incorrect, see Proposition 4.3)")

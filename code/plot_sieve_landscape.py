@@ -1,10 +1,11 @@
 """
-Figure: the sieve inequality L - lam R > 0 in the (lam, beta1) plane, for the level theta = 2/5 (alpha = 9/250,
-unconditional) and theta = 1/2 (alpha = 6/125, conditional on Conjecture 5.1), together with the curves
-1/lam + 2/beta1 = k + 1 (Omega(n(N-n)) <= k) and 1/lam + 1/beta1 = k' + 1 (max Omega <= k').
+Figure: the sieve inequality L - lam R > 0 in the (lam, beta1) plane, for the level theta = 1/2 (alpha = 6/125;
+Theorem 3.2, giving Theorem 1.1) and theta = 2/5 (alpha = 9/250; what Waibel's norm bound alone gives,
+Remark 4.5), together with the curves 1/lam + 2/beta1 = k + 1 (Omega(n(N-n)) <= k) and
+1/lam + 1/beta1 = k' + 1 (max Omega <= k').
 
-Floating-point sieve functions of sieve_core.py (same model as modular_sieve_scan.py); the three points of
-Table 2 of the paper and the point of Remark 4.5 are the parameter sets certified by certify_modular.py.
+Floating-point sieve functions of sieve_core.py (same model as modular_sieve_scan.py); the four points are the
+parameter sets of Table 2 of the paper, certified by certify_modular.py.
 Usage:  python plot_sieve_landscape.py
 """
 import numpy as np
@@ -14,11 +15,11 @@ import matplotlib.pyplot as plt
 from modular_sieve_scan import best_L, R_value
 
 panels = [
-    dict(theta=0.4, alpha=9 / 250, title=r"$\theta=2/5$ (Theorem 3.2), $\alpha=9/250$",
-         points=[(3 / 10, 3 / 10, "Table 2, line 1", (-62, -12)), (7 / 30, 7 / 20, "line 2", (6, 4)),
-                 (1 / 3, 3 / 10, "line 3", (6, -12))]),
-    dict(theta=0.5, alpha=6 / 125, title=r"$\theta=1/2$ (Conjecture 5.1), $\alpha=6/125$",
-         points=[(1 / 3, 17 / 50, "Remark 4.5", (6, -12))]),
+    dict(theta=0.4, alpha=9 / 250, title=r"$\theta=2/5$ (Waibel's bound alone, Remark 4.5), $\alpha=9/250$",
+         points=[(3 / 10, 3 / 10, "Table 2, line 2", (-62, -12)), (7 / 30, 7 / 20, "line 3", (6, 4)),
+                 (1 / 3, 3 / 10, "line 4", (6, -12))]),
+    dict(theta=0.5, alpha=6 / 125, title=r"$\theta=1/2$ (Theorem 3.2), $\alpha=6/125$",
+         points=[(1 / 3, 17 / 50, "Table 2, line 1", (6, -12))]),
 ]
 lam = np.linspace(0.15, 0.5, 141)
 
@@ -49,7 +50,8 @@ for ax, P in zip(axes, panels):
             ax.plot([], [], color="k", lw=0, label=lab + f"  [{hatch}]")
     for (l0, b0, name, off) in P["points"]:
         ax.plot(l0, b0, "o", color="#eb6834", ms=6, mec="k")
-        ax.annotate(name, (l0, b0), xytext=off, textcoords="offset points", fontsize=7)
+        ax.annotate(name, (l0, b0), xytext=off, textcoords="offset points", fontsize=7,
+                    bbox=dict(boxstyle="round,pad=0.15", fc="white", ec="none", alpha=0.85))
     ax.set_xlim(lam[0], lam[-1]); ax.set_ylim(beta1[0], beta1[-1])
     ax.set_xlabel(r"$\lambda$"); ax.set_ylabel(r"$\beta_1$")
     ax.set_title(P["title"] + rf",  $L={L:.4f}$", fontsize=9)

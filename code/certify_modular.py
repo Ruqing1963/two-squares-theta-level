@@ -2,7 +2,8 @@
 Rigorous (outward-rounded) check of the sieve inequality of Paper III (holomorphic route):
 
     N = n1 + n2,  n1, n2 odd sums of two squares,  N = 2 mod 4,  weights r(n1) r(n2),
-    level of distribution theta = 2/5 (Theorem 2),  z = N^alpha,  Richert weights up to y1 = N^beta1,
+    level of distribution theta (= 1/2 by Theorem 3.2; 2/5 from Waibel's bound alone),  z = N^alpha,
+    Richert weights up to y1 = N^beta1,
 
     net = L - lam * R  > 0,   in units of X V  (V = prod_{p < z} (1 - g(p))),
       L = f1(sA) F1(sB) + F1(sA) f1(sB) - F1(sA) F1(sB),   sA = thetaA/alpha, sB = (theta - thetaA)/alpha,
@@ -123,9 +124,10 @@ def certify(theta_s, alpha_s, lam_s, beta1_s, label, NU=4000):
 
 if __name__ == "__main__":
     if len(sys.argv) > 1 and sys.argv[1] == "1/2":
-        # conditional (Conjecture: level 1/2)
-        certify("1/2", "6/125", "1/3", "17/50", "level 1/2 (conditional): joint 8 and max side 5")
+        # level 1/2 (Theorem 3.2, using the norm bound of Part II): Table 2, first line; Theorem 1.1
+        certify("1/2", "6/125", "1/3", "17/50", "level 1/2: joint 8 and max side 5")
     else:
-        certify("2/5", "9/250", "3/10", "3/10", "joint 9 and max side 6")
-        certify("2/5", "4/125", "7/30", "7/20", "joint 9 (side 7), more margin")
-        certify("2/5", "9/250", "1/3", "3/10", "joint 9 and max side 6, lambda = 1/3")
+        # level 2/5 (what Waibel's norm bound alone gives, Remark 4.5): Table 2, lines 2-4
+        certify("2/5", "9/250", "3/10", "3/10", "level 2/5: joint 9 and max side 6")
+        certify("2/5", "4/125", "7/30", "7/20", "level 2/5: joint 9 (side 7), more margin")
+        certify("2/5", "9/250", "1/3", "3/10", "level 2/5: joint 9 and max side 6, lambda = 1/3")
