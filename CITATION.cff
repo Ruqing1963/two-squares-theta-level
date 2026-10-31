@@ -7,10 +7,10 @@ authors:
     given-names: Ruqing
     affiliation: "GUT Geoservice Inc., Montreal, Canada"
     email: ruqing@hotmail.com
-doi: 10.5281/zenodo.23618710
-date-released: 2026-10-24
+doi: 10.5281/zenodo.23826176
+date-released: 2026-10-30
 version: "3.0"
-url: "https://doi.org/10.5281/zenodo.23618710"
+url: "https://doi.org/10.5281/zenodo.23826176"
 license: MIT
 repository-code: "https://github.com/Ruqing1963/two-squares-theta-level"
 keywords:

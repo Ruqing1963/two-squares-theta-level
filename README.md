@@ -1,6 +1,6 @@
 # Sums of two squares with few prime factors via theta series of quaternary forms
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23618710.svg)](https://doi.org/10.5281/zenodo.23618710)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23826176.svg)](https://doi.org/10.5281/zenodo.23826176)
 
 Code, data and manuscript for
 
@@ -93,8 +93,9 @@ The identities T = M for the levels 4 and 12 (no cusp forms) are built-in consis
 
 ## Citation
 
-See `CITATION.cff`. The manuscript is archived at Zenodo: DOI [10.5281/zenodo.23618710](https://doi.org/10.5281/zenodo.23618710)
-(version 2, bounds 9 and 6). Version 3 (bounds 8 and 5, self-contained) is the current manuscript in `paper/`;
+See `CITATION.cff`. Version 3 (bounds 8 and 5, self-contained), the current manuscript in `paper/`, is archived at
+Zenodo: DOI [10.5281/zenodo.23826176](https://doi.org/10.5281/zenodo.23826176); version 2 (bounds 9 and 6) is
+DOI [10.5281/zenodo.23618710](https://doi.org/10.5281/zenodo.23618710).
 Part II ([two-squares-mean-square](https://github.com/Ruqing1963/two-squares-mean-square)) contains the mean-square
 and almost-all-N results and the numerical measurement of the norm.
 
